@@ -1,0 +1,1010 @@
+fileFormatVersion: 2
+guid: 73a0ae4b2058945459a757a51f11396e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4427028579910149204
+    second: MovementText_0
+  - first:
+      213: -8373206524620878295
+    second: MovementText_1
+  - first:
+      213: -8879711583107494891
+    second: MovementText_2
+  - first:
+      213: 5728904402137422352
+    second: MovementText_3
+  - first:
+      213: 4037400208224963613
+    second: MovementText_4
+  - first:
+      213: -8588670452545961161
+    second: MovementText_5
+  - first:
+      213: -5714445866852762476
+    second: MovementText_6
+  - first:
+      213: 8991775213495651027
+    second: MovementText_7
+  - first:
+      213: -4141266213440258974
+    second: MovementText_8
+  - first:
+      213: -4852034653323175470
+    second: MovementText_9
+  - first:
+      213: -6504935581665800051
+    second: MovementText_10
+  - first:
+      213: 8215070291204328365
+    second: MovementText_11
+  - first:
+      213: -4237397518312699111
+    second: MovementText_12
+  - first:
+      213: -166062577893581575
+    second: MovementText_13
+  - first:
+      213: 5286573967815054379
+    second: MovementText_14
+  - first:
+      213: 1754462727140554745
+    second: MovementText_15
+  - first:
+      213: 4272459201166638369
+    second: MovementText_16
+  - first:
+      213: -21308437019651542
+    second: MovementText_17
+  - first:
+      213: 5507495613047011689
+    second: MovementText_18
+  - first:
+      213: 2453141567338713400
+    second: MovementText_19
+  - first:
+      213: 3354859740096502939
+    second: MovementText_20
+  - first:
+      213: -565991465600876066
+    second: MovementText_21
+  - first:
+      213: 49966033536272344
+    second: MovementText_22
+  - first:
+      213: 7879139518135196494
+    second: MovementText_23
+  - first:
+      213: -5000701343363690516
+    second: MovementText_24
+  - first:
+      213: 2929135195167083732
+    second: MovementText_25
+  - first:
+      213: 7519946481255267320
+    second: MovementText_26
+  - first:
+      213: 68172509570897523
+    second: MovementText_27
+  - first:
+      213: -7976017905010616199
+    second: MovementText_28
+  - first:
+      213: 7870307470461870253
+    second: MovementText_29
+  - first:
+      213: -280444263438245642
+    second: MovementText_30
+  - first:
+      213: -8541495315881141121
+    second: MovementText_31
+  - first:
+      213: 3267945745323457162
+    second: MovementText_32
+  - first:
+      213: -8333496594013823018
+    second: MovementText_33
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MovementText_0
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 207
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 454eb0cb907ff6d30800000000000000
+      internalID: 4427028579910149204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_1
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 207
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e4dfc67056ccb80800000000000000
+      internalID: -8373206524620878295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 207
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51cc4f4ac5de4c480800000000000000
+      internalID: -8879711583107494891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_3
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 207
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01a92916338218f40800000000000000
+      internalID: 5728904402137422352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_4
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 207
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c465b291ab70830800000000000000
+      internalID: 4037400208224963613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_5
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 207
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 733ca176ab9eec880800000000000000
+      internalID: -8588670452545961161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_6
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 207
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49cba02b2c532b0b0800000000000000
+      internalID: -5714445866852762476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_7
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 207
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3da029c8ae339cc70800000000000000
+      internalID: 8991775213495651027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_8
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 207
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26cf09bf1544786c0800000000000000
+      internalID: -4141266213440258974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_9
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 207
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d959c2a03c1aacb0800000000000000
+      internalID: -4852034653323175470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_10
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 207
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d80d2089d83d9b5a0800000000000000
+      internalID: -6504935581665800051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_11
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 147
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dab491097eac10270800000000000000
+      internalID: 8215070291204328365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_12
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 147
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b89d4686db135c0800000000000000
+      internalID: -4237397518312699111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_13
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 138
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fcda2a17f602bdf0800000000000000
+      internalID: -166062577893581575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_14
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 147
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b249176a30fad5940800000000000000
+      internalID: 5286573967815054379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_15
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 147
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f730e60e8a195810800000000000000
+      internalID: 1754462727140554745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_16
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 147
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12df2eac103da4b30800000000000000
+      internalID: 4272459201166638369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_17
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 147
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2299b4e61c44bff0800000000000000
+      internalID: -21308437019651542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_18
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 147
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96970b1841e8e6c40800000000000000
+      internalID: 5507495613047011689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_19
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 147
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83118f8124f4b0220800000000000000
+      internalID: 2453141567338713400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_20
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 147
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c16b7a82bde8e20800000000000000
+      internalID: 3354859740096502939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_21
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 87
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed105f2c2c13528f0800000000000000
+      internalID: -565991465600876066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_22
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 87
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d7c3cfb7d381b000800000000000000
+      internalID: 49966033536272344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_23
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 87
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4bd03275a3585d60800000000000000
+      internalID: 7879139518135196494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_24
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 87
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef0df08f90f99ab0800000000000000
+      internalID: -5000701343363690516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_25
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 116
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dc4707d0f066a820800000000000000
+      internalID: 2929135195167083732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_26
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 87
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fb3b297b773c5860800000000000000
+      internalID: 7519946481255267320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_27
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 87
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3769b68498232f000800000000000000
+      internalID: 68172509570897523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_28
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 87
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 978dfa169fd7f4190800000000000000
+      internalID: -7976017905010616199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_29
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 87
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da0abf912f2f83d60800000000000000
+      internalID: 7870307470461870253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_30
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 87
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f0a772ad69ab1cf0800000000000000
+      internalID: -280444263438245642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_31
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 87
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7cdd36d343867980800000000000000
+      internalID: -8541495315881141121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_32
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 87
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8af04f47531a5d20800000000000000
+      internalID: 3267945745323457162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MovementText_33
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 78
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dfd0e02009795c80800000000000000
+      internalID: -8333496594013823018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      MovementText_0: 4427028579910149204
+      MovementText_1: -8373206524620878295
+      MovementText_10: -6504935581665800051
+      MovementText_11: 8215070291204328365
+      MovementText_12: -4237397518312699111
+      MovementText_13: -166062577893581575
+      MovementText_14: 5286573967815054379
+      MovementText_15: 1754462727140554745
+      MovementText_16: 4272459201166638369
+      MovementText_17: -21308437019651542
+      MovementText_18: 5507495613047011689
+      MovementText_19: 2453141567338713400
+      MovementText_2: -8879711583107494891
+      MovementText_20: 3354859740096502939
+      MovementText_21: -565991465600876066
+      MovementText_22: 49966033536272344
+      MovementText_23: 7879139518135196494
+      MovementText_24: -5000701343363690516
+      MovementText_25: 2929135195167083732
+      MovementText_26: 7519946481255267320
+      MovementText_27: 68172509570897523
+      MovementText_28: -7976017905010616199
+      MovementText_29: 7870307470461870253
+      MovementText_3: 5728904402137422352
+      MovementText_30: -280444263438245642
+      MovementText_31: -8541495315881141121
+      MovementText_32: 3267945745323457162
+      MovementText_33: -8333496594013823018
+      MovementText_4: 4037400208224963613
+      MovementText_5: -8588670452545961161
+      MovementText_6: -5714445866852762476
+      MovementText_7: 8991775213495651027
+      MovementText_8: -4141266213440258974
+      MovementText_9: -4852034653323175470
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

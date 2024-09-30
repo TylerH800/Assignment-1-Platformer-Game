@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: e76b65e393e43b345999bbf82ea5a9a2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2501851510716067393
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_0
+  - first:
+      213: 3824523850984924633
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_1
+  - first:
+      213: -2373702507985487404
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_2
+  - first:
+      213: -4100002833098074686
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_3
+  - first:
+      213: 4913095360116417616
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_4
+  - first:
+      213: 581479699289822145
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_5
+  - first:
+      213: -8326005781653420155
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_6
+  - first:
+      213: -2168934434326808796
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_7
+  - first:
+      213: 5604076557314756111
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_8
+  - first:
+      213: 3017904498710177260
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_9
+  - first:
+      213: 8722677598055477841
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_10
+  - first:
+      213: -857593809414441279
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_11
+  - first:
+      213: -8371395181232767936
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_12
+  - first:
+      213: -7915872970301432096
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_13
+  - first:
+      213: 4731388351362999183
+    second: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_14
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1567
+        width: 182
+        height: 258
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86cfa139546a1d34f9ba8edff5376454
+      internalID: 225751393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 1567
+        width: 196
+        height: 204
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2331dd4513fc89e4a9440bdeb3775f74
+      internalID: -369494118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1189
+        y: 1567
+        width: 192
+        height: 242
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a67fb6247934ab4bbac6508875f1d5e
+      internalID: 715404305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1699
+        y: 1567
+        width: 182
+        height: 262
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ba982cf1c1479a4bb3b8dca1794dc21
+      internalID: -330536646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2209
+        y: 1567
+        width: 182
+        height: 258
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f258a3a9bda118d459d1b3923a59efe6
+      internalID: 2071990986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2719
+        y: 1567
+        width: 184
+        height: 202
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ffb7a490fabad4c88c01dfce0cce04
+      internalID: 840417669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3233
+        y: 1567
+        width: 180
+        height: 244
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b87d92ac334834da3a58ed9901679c
+      internalID: 1243366559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3747
+        y: 1567
+        width: 180
+        height: 264
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ae93c21fe607ea4db291ab528f6c6c0
+      internalID: 1810547826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1056
+        width: 182
+        height: 257
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad026bd34dc95343beec04aaa93fdc3
+      internalID: -1406296602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_9
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 1056
+        width: 182
+        height: 255
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c422eaf640ba00044be1eab6495e833b
+      internalID: -1598421944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 1056
+        width: 182
+        height: 253
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22ce2213237dfa42b030eedbf98356c
+      internalID: 208099484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1697
+        y: 1056
+        width: 182
+        height: 253
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8e88adf8bd303c40846a6318a8c37a0
+      internalID: -2106101354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_12
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 757
+        width: 206
+        height: 254
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2032aee47880e674ebb0c4364a72f312
+      internalID: 1866327359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_13
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 667
+        width: 204
+        height: 282
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 500552f941359c24086d66e40934668a
+      internalID: 1147981709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1151
+        y: 541
+        width: 244
+        height: 102
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d238c82d1366c1b45ab4679e7752adb2
+      internalID: -2071611666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 52494ed92e98d9842a6fddb4a49f02fc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_0: 225751393
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_1: -369494118
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_10: 208099484
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_11: -2106101354
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_12: 1866327359
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_13: 1147981709
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_14: -2071611666
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_2: 715404305
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_3: -330536646
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_4: 2071990986
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_5: 840417669
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_6: 1243366559
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_7: 1810547826
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_8: -1406296602
+      C-_temp_Year-1_Tyler-H_Unity-Projects_My-Awesome-Project_Assets_Sprites_player-sprite-sheet_9: -1598421944
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
