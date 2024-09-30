@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour
     private bool attacking = false;
     private bool jumping = false;
 
+    public LayerMask whatIsGround;
+
     //components
     Rigidbody2D rb;
     Animator anim;
@@ -37,31 +39,35 @@ public class PlayerScript : MonoBehaviour
         MoveSprite();
         Jump();
         Attack();
-        CheckForDeath(); 
+        CheckForDeath();
+        GroundCheck();
     }
 
     #region basic movement
     void MoveSprite()
     {
-        if (!attacking)
+        if (attacking)
         {
-            anim.SetFloat("Speed", 0);
-
-            //move the player left and right using the 'a' and 'd' keys, and animate the character
-            if (Input.GetKey("a") == true)
-            {
-                rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
-                anim.SetFloat("Speed", 1);
-                sr.flipX = true;
-            }
-
-            if (Input.GetKey("d") == true)
-            {
-                rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
-                anim.SetFloat("Speed", 1);
-                sr.flipX = false;
-            }
+            return;
         }
+        
+        anim.SetFloat("Speed", 0);
+
+        //move the player left and right using the 'a' and 'd' keys, and animate the character
+        if (Input.GetKey("a") == true)
+        {
+            rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
+            anim.SetFloat("Speed", 1);
+            sr.flipX = true;
+        }
+
+        if (Input.GetKey("d") == true)
+        {
+            rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+            anim.SetFloat("Speed", 1);
+            sr.flipX = false;
+        }
+        
        
     }
     
@@ -83,29 +89,25 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void GroundCheck()
     {
-        //when the player hits the ground, they stop jumping and can jump again
-        if (collision.gameObject.CompareTag("Ground"))
+        //check if there is ground immediately below the enemy
+        if (Physics2D.Raycast(transform.position, Vector3.down, 0.5f, whatIsGround))
         {
-            
+            //Debug.DrawRay(transform.position, Vector3.down);
             anim.SetBool("IsJumping", false);
             anim.SetBool("IsFalling", false);
+
             grounded = true;
             jumping = false;
         }
-
-    }
-
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        //if the player leaves the ground, they are no longer grounded
-        if (collision.gameObject.CompareTag("Ground"))
+        else
         {
             grounded = false;
         }
     }
+
+    
     #endregion
 
     #region water interaction

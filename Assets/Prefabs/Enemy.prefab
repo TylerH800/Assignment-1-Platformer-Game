@@ -209,7 +209,7 @@ MonoBehaviour:
   health: 2
   enemySpeed: 3.5
   followRad: 10
-  jumpForce: 1.5
+  jumpForce: 1.75
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
