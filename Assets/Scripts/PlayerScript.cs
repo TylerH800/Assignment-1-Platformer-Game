@@ -88,7 +88,7 @@ public class PlayerScript : MonoBehaviour
         //when the player hits the ground, they stop jumping and can jump again
         if (collision.gameObject.CompareTag("Ground"))
         {
-            print("grounded");
+            
             anim.SetBool("IsJumping", false);
             anim.SetBool("IsFalling", false);
             grounded = true;
