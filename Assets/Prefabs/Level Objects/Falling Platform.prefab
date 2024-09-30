@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5236002073061674369}
   - component: {fileID: 3106220263455887594}
   - component: {fileID: 8603516766757819567}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Falling Platform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1504187419605458892}
   - component: {fileID: 1293680031294492761}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Danger-sign-png_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1608740445259597920}
   - component: {fileID: 4082991013532331409}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Danger-sign-png_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,6 +462,10 @@ PrefabInstance:
     - target: {fileID: 3762876038935039284, guid: 68208a6af132f0442b5b6fbdf49c5c39, type: 3}
       propertyPath: m_Name
       value: Small Platform Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762876038935039284, guid: 68208a6af132f0442b5b6fbdf49c5c39, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 512100520462522577, guid: 68208a6af132f0442b5b6fbdf49c5c39, type: 3}

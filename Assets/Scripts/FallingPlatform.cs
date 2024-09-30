@@ -7,7 +7,9 @@ public class FallingPlatform : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float timeBeforeFall = 1;
-    
+    private float destroyTime = 4;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class FallingPlatform : MonoBehaviour
         print("fall");
         rb.gravityScale = 0.3f;
         Invoke("IncreaseGrav", 1.5f);
+        Destroy(gameObject, destroyTime);
     }
 
     void IncreaseGrav()
