@@ -6,15 +6,19 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     #region variables and references
-    //variables
+    //movement
     public float moveSpeed = 7;
-    
     public float jumpForce;
     public bool grounded = true;
-    private bool attacking = false;
     private bool jumping = false;
 
     public LayerMask whatIsGround;
+    private Vector2 moveDir;
+
+    //attacking
+    private bool attacking = false;
+    public  float attackRange;
+
 
     //components
     Rigidbody2D rb;
@@ -41,6 +45,7 @@ public class PlayerScript : MonoBehaviour
         Attack();
         CheckForDeath();
         GroundCheck();
+        Debug.DrawRay(transform.position + new Vector3(0, 1, 0), moveDir, Color.red);
     }
 
     #region basic movement
@@ -59,6 +64,7 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
             anim.SetFloat("Speed", 1);
             sr.flipX = true;
+            moveDir = Vector2.left;
         }
 
         if (Input.GetKey("d") == true)
@@ -66,9 +72,11 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
             anim.SetFloat("Speed", 1);
             sr.flipX = false;
+            moveDir = Vector2.right;
+
         }
-        
-       
+
+
     }
     
     void Jump()
@@ -135,16 +143,28 @@ public class PlayerScript : MonoBehaviour
         {
             anim.SetBool("IsAttacking", true);
             attacking = true;
-            attackBox.SetActive(true);
+            //attackBox.SetActive(true);
         }  
         
+    }
+
+    void AttackExecute()
+    {
+        print("attack");
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, 1, 0), moveDir, attackRange);
+        
+        if (hit.transform.gameObject.CompareTag("Crate"))
+        {
+            print("hit box");
+            Destroy(hit.transform.gameObject);
+        }
     }
 
     public void AttackEnd()
     {
         anim.SetBool("IsAttacking", false);
         attacking = false;
-        attackBox.SetActive(false);
+        //attackBox.SetActive(false);
     }
 
     #endregion

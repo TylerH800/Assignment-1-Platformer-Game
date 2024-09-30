@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class BoxScript : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Start()
     {
-        //if the player attacks the box, the box is destroyed
-        if( collision.gameObject.tag == "Attack Box")
-        {
-            Destroy(gameObject);
-
-        }
-
+        
     }
 }

@@ -1604,11 +1604,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 301052053282783603, guid: 9e2e0855a4021eb4fa980120312fb075, type: 3}
       propertyPath: m_Name
-      value: Box (1)
+      value: Box
       objectReference: {fileID: 0}
     - target: {fileID: 301052053282783603, guid: 9e2e0855a4021eb4fa980120312fb075, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 301052053282783603, guid: 9e2e0855a4021eb4fa980120312fb075, type: 3}
+      propertyPath: m_TagString
+      value: Crate
       objectReference: {fileID: 0}
     - target: {fileID: 8659121839124968977, guid: 9e2e0855a4021eb4fa980120312fb075, type: 3}
       propertyPath: m_LocalScale.x
@@ -16259,7 +16263,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 301052053282783603, guid: 9e2e0855a4021eb4fa980120312fb075, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 301052053282783603, guid: 9e2e0855a4021eb4fa980120312fb075, type: 3}
+      propertyPath: m_TagString
+      value: Crate
       objectReference: {fileID: 0}
     - target: {fileID: 3419023355064949284, guid: 9e2e0855a4021eb4fa980120312fb075, type: 3}
       propertyPath: m_SortingLayer
@@ -21215,6 +21223,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2248155619997398352, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
+      propertyPath: attackRange
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2248155619997398352, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
       propertyPath: whatIsGround.m_Bits
       value: 8
