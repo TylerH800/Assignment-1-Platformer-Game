@@ -2941,6 +2941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b4870a873b2e241806d81441ff906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smoothTime: 0.2
+  target: {fileID: 2118967261}
 --- !u!4 &527077133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2252057866885751896, guid: be4568c4ae6ec874aa0695d004a4e7ba, type: 3}
@@ -13550,6 +13552,11 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 1.285}
   m_Size: {x: 1.82, y: 2.57}
   m_Direction: 0
+--- !u!4 &2118967261 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7144820195454750902, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
+  m_PrefabInstance: {fileID: 1310645955287797998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2130353978
 PrefabInstance:
   m_ObjectHideFlags: 0
