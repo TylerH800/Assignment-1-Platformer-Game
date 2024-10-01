@@ -5,15 +5,20 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     //variables
-    public float health = 2;
+
+    //health
+    public int maxHealth = 20;
+    int currentHealth;
+
+    //movement
     public float enemySpeed;
     public float followRad;
     public float jumpForce;
    
-    bool grounded;
-    bool jumping = false;
+    //attacking
     bool chasing;
     
+    //player and ground detection
     public LayerMask whatIsGround;
     public LayerMask whatIsPlayer;
 
@@ -31,12 +36,14 @@ public class Enemy : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        currentHealth = maxHealth;
     }
     void Update()
     {
-        GetPlayerPos(); //constantly finds the players position
-        ChasePlayer(); // if the player is close enough, the enemy will chase them
-        LookAtPlayer(); //face the player
+        GetPlayerPos(); 
+        ChasePlayer(); 
+        LookAtPlayer(); 
         GroundCheck();
         Jumping();
     }
@@ -48,6 +55,7 @@ public class Enemy : MonoBehaviour
 
     void GetPlayerPos()
     {
+        //constantly finds the players position
         playerPos = player.transform.position;
     }
 
@@ -55,17 +63,13 @@ public class Enemy : MonoBehaviour
     {
         //change the enemy animation depending on whether enemy is moving up or down
         if (rb.velocity.y >= 0.1f)
-        {
-            //jump anim
+        {            
             anim.SetBool("enemyJump", true);
-
         }
         else if (rb.velocity.y < 0)
         {
-            //fall anim
             anim.SetBool("enemyJump", false);
             anim.SetBool("enemyFall", true );
-
         }
 
         //if the enemy is moving horizontally, play the walk animation; else, play the idle animation
@@ -78,7 +82,7 @@ public class Enemy : MonoBehaviour
             anim.SetBool("enemyWalk", false);
         }
     }
-    void LookAtPlayer()
+    void LookAtPlayer() //face the player
     {
         //flips the enemy sprite x depending on which side of the enemy the player is
         if (playerPos.x > transform.position.x)
@@ -93,7 +97,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void ChasePlayer()
+    void ChasePlayer()   // if the player is close enough, the enemy will chase them
     {
         if (!Physics2D.OverlapCircle(transform.position, followRad, whatIsPlayer))
         {
@@ -108,21 +112,18 @@ public class Enemy : MonoBehaviour
         }
         else if (playerPos.x < transform.position.x)
         {         
-            rb.velocity = new Vector3(-enemySpeed, rb.velocity.y);
-            
-            
+            rb.velocity = new Vector3(-enemySpeed, rb.velocity.y);                        
         }
     }
 
     void Jumping() //if the enemy walks too close to elevated ground that it is facing, jump
     {
-        //Debug.DrawRay(transform.position + new Vector3(0, 1f), moveDir, Color.red);
-        if (Physics2D.Raycast(transform.position + new Vector3(0, 1f), moveDir, 1.6f, whatIsGround))
+        //Debug.DrawRay(transform.position + new Vector3(0, 0.8f), moveDir, Color.red);
+        if (Physics2D.Raycast(transform.position + new Vector3(0, 0.8f), moveDir, 1.6f, whatIsGround))
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-    }
-    
+    }    
 
     void GroundCheck()
     {
@@ -132,22 +133,29 @@ public class Enemy : MonoBehaviour
             //Debug.DrawRay(transform.position, Vector3.down);
             anim.SetBool("enemyFall", false);
             anim.SetBool("enemyJump", false);
-
-            grounded = true;
-            jumping = false;
-            
+          
         }
-        else
-        {
-            grounded = false;
-        }
-
         
-        
-
     }
 
-    
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        // Debug.Log(currentHealth)
+        ;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        //print("die");
+        Destroy(gameObject);
+    }
+
+
 
 
 }

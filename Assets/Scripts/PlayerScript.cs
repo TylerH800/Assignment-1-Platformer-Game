@@ -17,7 +17,10 @@ public class PlayerScript : MonoBehaviour
 
     //attacking
     private bool attacking = false;
-    public  float attackRange;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public int attackDamage = 10;
+    public LayerMask enemyLayers;
 
 
     //components
@@ -45,7 +48,7 @@ public class PlayerScript : MonoBehaviour
         Attack();
         CheckForDeath();
         GroundCheck();
-        Debug.DrawRay(transform.position + new Vector3(0, 1, 0), moveDir, Color.red);
+       
     }
 
     #region basic movement
@@ -87,13 +90,23 @@ public class PlayerScript : MonoBehaviour
             //makes the player jump, stops them from jumping in the air and animates the jump
             rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             grounded = false;
-            anim.SetBool("IsJumping", true);
+            
             jumping = true;
         }
 
-        if (!grounded && !jumping)
-        { //if the player falls but doesnt jump, play the falling animation
+        //change the enemy animation depending on whether enemy is moving up or down
+        if (rb.velocity.y >= 0.1f)
+        {
+            //jump anim
+            anim.SetBool("IsJumping", true);
+
+        }
+        else if (rb.velocity.y < 0)
+        {
+            //fall anim
+            anim.SetBool("IsJumping", false);
             anim.SetBool("IsFalling", true);
+
         }
     }
 
@@ -136,35 +149,53 @@ public class PlayerScript : MonoBehaviour
 
     #endregion
 
-    #region attacking
+    #region combat
     void Attack()
     {
-        if ( Input.GetKeyDown("e") && grounded && rb.velocity == Vector2.zero)
+        if ( Input.GetKeyDown("e") && grounded && rb.velocity.magnitude < 0.5f)
         {
             anim.SetBool("IsAttacking", true);
-            attacking = true;
-            //attackBox.SetActive(true);
+            attacking = true;            
         }  
-        
+ 
     }
 
     void AttackExecute()
     {
-        print("attack");
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0, 1, 0), moveDir, attackRange);
         
-        if (hit.transform.gameObject.CompareTag("Crate"))
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach(Collider2D hit in hitEnemies)
         {
-            print("hit box");
-            Destroy(hit.transform.gameObject);
+            if (hit.transform.CompareTag("Crate"))
+            {
+                hit.GetComponent<BoxScript>().TakeDamage(attackDamage); 
+                Debug.Log(hit.transform.name);
+            }
+            else if (hit.transform.CompareTag("Enemy"))
+            {
+                hit.GetComponent<Enemy>().TakeDamage(attackDamage);
+                Debug.Log(hit.transform.name);
+            }
+            
         }
+        
     }
 
     public void AttackEnd()
     {
         anim.SetBool("IsAttacking", false);
-        attacking = false;
-        //attackBox.SetActive(false);
+        attacking = false;        
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+        {
+            return; 
+        }
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
     #endregion

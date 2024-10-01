@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Ground
   - Water
-  - EnemyJump
   - Crate
+  - Enemy
   - Attack Box
   layers:
   - Default
@@ -18,7 +18,7 @@ TagManager:
   - UI
   - Player
   - Box
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -46,15 +46,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 1309358101
-    locked: 0
-  - name: Ground
-    uniqueID: 2320058217
+  - name: Background2
+    uniqueID: 350102065
     locked: 0
   - name: Background1
     uniqueID: 1915008205
     locked: 0
-  - name: Background2
-    uniqueID: 350102065
+  - name: Ground
+    uniqueID: 2320058217
+    locked: 0
+  - name: Player
+    uniqueID: 1309358101
     locked: 0

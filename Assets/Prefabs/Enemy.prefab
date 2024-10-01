@@ -92,9 +92,9 @@ GameObject:
   - component: {fileID: 8611034165673893442}
   - component: {fileID: 8631061039028170054}
   - component: {fileID: 2541215214443448316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1309358101
-  m_SortingLayer: 1
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1406296602, guid: e76b65e393e43b345999bbf82ea5a9a2, type: 3}
   m_Color: {r: 1, g: 0.1462264, b: 0.1462264, a: 1}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81cbce2ccb4918f40a849766d4f8f038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  maxHealth: 10
   enemySpeed: 3.5
   followRad: 10
   jumpForce: 1.75
