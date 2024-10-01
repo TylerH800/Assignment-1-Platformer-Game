@@ -20356,6 +20356,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2118967249}
     - target: {fileID: 8611034165673893442, guid: ad120045ca03ec4418d0be0bcf667e58, type: 3}
+      propertyPath: attackRad
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611034165673893442, guid: ad120045ca03ec4418d0be0bcf667e58, type: 3}
       propertyPath: followRad
       value: 12
       objectReference: {fileID: 0}
@@ -21824,11 +21828,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7144820195454750902, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.14
+      value: 62.55
       objectReference: {fileID: 0}
     - target: {fileID: 7144820195454750902, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.35
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 7144820195454750902, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
       propertyPath: m_LocalPosition.z

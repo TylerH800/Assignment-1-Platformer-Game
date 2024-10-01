@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    //variables
+    #region variables and references
 
     //health
     public int maxHealth = 20;
@@ -14,9 +14,14 @@ public class Enemy : MonoBehaviour
     public float enemySpeed;
     public float followRad;
     public float jumpForce;
-   
-    //attacking
+       
     bool chasing;
+
+    //combat
+    public float attackRad;
+    public float attackCooldown;
+    bool attacking = false;
+    bool meleeCooldown;
     
     //player and ground detection
     public LayerMask whatIsGround;
@@ -31,6 +36,8 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer sr;
     private Rigidbody2D rb;
 
+    #endregion
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -42,23 +49,17 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         GetPlayerPos(); 
-        ChasePlayer(); 
-        LookAtPlayer(); 
+        LookAtPlayer();
         GroundCheck();
-        Jumping();
+
+        StateFinder();
     }
 
     private void LateUpdate()
     {
         Animation();
     }
-
-    void GetPlayerPos()
-    {
-        //constantly finds the players position
-        playerPos = player.transform.position;
-    }
-
+    
     void Animation()
     {
         //change the enemy animation depending on whether enemy is moving up or down
@@ -81,6 +82,35 @@ public class Enemy : MonoBehaviour
         {
             anim.SetBool("enemyWalk", false);
         }
+    }
+
+    void StateFinder()
+    {
+        if (Physics2D.OverlapCircle(transform.position + new Vector3(0, 1.4f, 0), attackRad, whatIsPlayer) && !meleeCooldown && !attacking)
+        {
+            StartAttack();
+        }
+        else if (Physics2D.OverlapCircle(transform.position + new Vector3(0, 1.4f, 0), followRad, whatIsPlayer) && !attacking)
+        {
+            ChasePlayer();
+            Jumping();
+        }
+        
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position + new Vector3(0, 1.4f, 0), followRad);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(0, 1.4f, 0), attackRad);
+    }
+
+
+
+    #region movement
+    void GetPlayerPos()
+    {
+        //constantly finds the players position
+        playerPos = player.transform.position;
     }
     void LookAtPlayer() //face the player
     {
@@ -132,12 +162,13 @@ public class Enemy : MonoBehaviour
         {
             //Debug.DrawRay(transform.position, Vector3.down);
             anim.SetBool("enemyFall", false);
-            anim.SetBool("enemyJump", false);
-          
+            anim.SetBool("enemyJump", false);         
         }
-        
     }
 
+    #endregion
+
+    #region taking damage
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -153,8 +184,59 @@ public class Enemy : MonoBehaviour
     {
         //print("die");
         Destroy(gameObject);
+
     }
 
+    #endregion
+
+    #region combat mechanics
+
+    /*
+     * make state finder
+     * 
+     * Check for player being in range
+     * Stop walking and wait a mo
+     * Start attack animation
+     * During attack animation, check for player in range (reference player script)
+     * wait for a mo
+     * carry on as normal
+     */
+    
+    void StartAttack()
+    {
+        attacking = true;
+        chasing = false;
+
+        anim.SetBool("enemyAttack", true);
+        anim.SetBool("enemyWalk", false);
+        
+        //Debug.Log("attack start");
+    }
+
+    void ExecuteAttack()
+    {
+        print("execute");
+
+        Collider2D hit = Physics2D.OverlapCircle(transform.position + new Vector3(0, 1.4f, 0), attackRad, whatIsPlayer);
+
+        Destroy(hit.gameObject);
+
+        void EndAttack()
+        {
+            //print("resetting");
+            anim.SetBool("enemyAttack", false);
+            attacking = false;
+            meleeCooldown = true;
+            Invoke("EndMeleeCooldown", 2f);
+        }
+
+        void EndMeleeCooldown()
+        {
+            //print("cooldown over");
+            meleeCooldown = false;
+        }
+        #endregion
+    }
 
 
 

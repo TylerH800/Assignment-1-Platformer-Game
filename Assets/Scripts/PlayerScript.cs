@@ -27,7 +27,8 @@ public class PlayerScript : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     SpriteRenderer sr;
-    public GameObject attackBox;
+
+    HelperScript helper;
     
 
     private void Start()
@@ -35,6 +36,8 @@ public class PlayerScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+
+        helper = gameObject.AddComponent<HelperScript>();
 
        
 
@@ -48,6 +51,11 @@ public class PlayerScript : MonoBehaviour
         Attack();
         CheckForDeath();
         GroundCheck();
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            helper.Test();
+        }
        
     }
 
