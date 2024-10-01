@@ -209,7 +209,7 @@ public class Enemy : MonoBehaviour
 
         anim.SetBool("enemyAttack", true);
         anim.SetBool("enemyWalk", false);
-        
+
         //Debug.Log("attack start");
     }
 
@@ -219,24 +219,26 @@ public class Enemy : MonoBehaviour
 
         Collider2D hit = Physics2D.OverlapCircle(transform.position + new Vector3(0, 1.4f, 0), attackRad, whatIsPlayer);
 
-        Destroy(hit.gameObject);
+        hit.GetComponent<PlayerScript>().Die();
 
-        void EndAttack()
-        {
-            //print("resetting");
-            anim.SetBool("enemyAttack", false);
-            attacking = false;
-            meleeCooldown = true;
-            Invoke("EndMeleeCooldown", 2f);
-        }
 
-        void EndMeleeCooldown()
-        {
-            //print("cooldown over");
-            meleeCooldown = false;
-        }
-        #endregion
     }
+
+    void EndAttack()
+    {
+        //print("resetting");
+        anim.SetBool("enemyAttack", false);
+        attacking = false;
+        meleeCooldown = true;
+        Invoke("EndMeleeCooldown", 2f);
+    }
+
+    void EndMeleeCooldown()
+    {
+        //print("cooldown over");
+        meleeCooldown = false;
+    }
+    #endregion
 
 
 

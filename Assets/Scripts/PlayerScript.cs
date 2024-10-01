@@ -213,8 +213,13 @@ public class PlayerScript : MonoBehaviour
     {
         if (transform.position.y < -10 || Input.GetKey(KeyCode.Escape))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Die();
         }
+
+    }
+    public void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     #endregion
 
