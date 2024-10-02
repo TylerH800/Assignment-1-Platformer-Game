@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class HelperScript : MonoBehaviour
 {
-    private void Start()
-    {
-        
-    }
+    
     public void Test()
     {
         print("Hello World");
@@ -27,5 +24,7 @@ public class HelperScript : MonoBehaviour
             sr.flipX = false;
         }
     }
+
+    
 
 }

@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     public float smoothTime = 0.25f;
     private Vector3 velocity = Vector3.zero;
 
-    [SerializeField] private Transform target;
+    public Transform target;
     
 
     void Start()
@@ -22,12 +22,9 @@ public class CameraFollow : MonoBehaviour
         //camera follows player position
         if (target != null)
         {
+            //makes the camera follow smoothly
             Vector3 targetPos = target.position + offset;
             transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
         }
-            
-
-
-        
     }
 }

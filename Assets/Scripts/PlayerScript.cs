@@ -23,6 +23,12 @@ public class PlayerScript : MonoBehaviour
     public int attackDamage = 10;
     public LayerMask enemyLayers;
 
+    //scoring
+    public int coinScore = 10;
+    public int enemyScore = 50;
+    public int crateScore = 5;
+
+
 
     //components
     Rigidbody2D rb;
@@ -147,17 +153,25 @@ public class PlayerScript : MonoBehaviour
     
     #endregion
 
-    #region water interaction and checkpoints
+    #region collision
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //if you enter water, move speed is halved
         if (collision.gameObject.CompareTag("Water"))
         {
             moveSpeed /= 2;
         }
 
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            Destroy(collision.gameObject);
+            gameManager.GainScore(coinScore);
+        }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //reverts move speed to normal once you leave water
         if (collision.gameObject.CompareTag("Water"))
         {
             moveSpeed *= 2;
@@ -188,11 +202,13 @@ public class PlayerScript : MonoBehaviour
             {
                 hit.GetComponent<BoxScript>().TakeDamage(attackDamage); 
                 Debug.Log(hit.transform.name);
+                gameManager.GainScore(crateScore);
             }
             else if (hit.transform.CompareTag("Enemy"))
             {
                 hit.GetComponent<Enemy>().TakeDamage(attackDamage);
                 Debug.Log(hit.transform.name);
+                gameManager.GainScore(enemyScore);
             }
             
         }

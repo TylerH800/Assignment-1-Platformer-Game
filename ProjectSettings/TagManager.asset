@@ -9,6 +9,7 @@ TagManager:
   - Crate
   - Enemy
   - Checkpoint
+  - Coin
   layers:
   - Default
   - TransparentFX

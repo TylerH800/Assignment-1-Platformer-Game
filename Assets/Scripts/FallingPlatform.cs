@@ -31,7 +31,7 @@ public class FallingPlatform : MonoBehaviour
     }
     void Fall()
     {
-        
+        //platform starts to fall
         print("fall");
         rb.gravityScale = 0.3f;
         Invoke("IncreaseGrav", 1.5f);
@@ -40,11 +40,13 @@ public class FallingPlatform : MonoBehaviour
 
     void IncreaseGrav()
     {
+        //gravity increases
         rb.gravityScale = 0.6f;
     }
 
     private void Reset()
     {
+        //the platform is reset back to where it was before falling
         rb.gravityScale = 0f;
         Instantiate(fallingPf, spawnPos, Quaternion.identity);
         Destroy(gameObject);
