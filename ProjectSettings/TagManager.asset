@@ -8,7 +8,7 @@ TagManager:
   - Water
   - Crate
   - Enemy
-  - Attack Box
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

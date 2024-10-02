@@ -139,12 +139,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   attackPoint: {fileID: 7405390448143918969}
-  attackRange: 0.75
+  attackRange: 1.2
   attackDamage: 20
   enemyLayers:
     serializedVersion: 2
     m_Bits: 384
-  attackBox: {fileID: 0}
 --- !u!50 &6365160017172249466
 Rigidbody2D:
   serializedVersion: 4

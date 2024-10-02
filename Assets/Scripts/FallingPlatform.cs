@@ -9,10 +9,15 @@ public class FallingPlatform : MonoBehaviour
     private float timeBeforeFall = 1;
     private float destroyTime = 4;
 
+    public GameObject fallingPf;
+
+    Vector2 spawnPos;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        spawnPos = transform.position;
         rb = GetComponent<Rigidbody2D>();       
     }
 
@@ -30,11 +35,18 @@ public class FallingPlatform : MonoBehaviour
         print("fall");
         rb.gravityScale = 0.3f;
         Invoke("IncreaseGrav", 1.5f);
-        Destroy(gameObject, destroyTime);
+        Invoke("Reset", 4);
     }
 
     void IncreaseGrav()
     {
         rb.gravityScale = 0.6f;
+    }
+
+    private void Reset()
+    {
+        rb.gravityScale = 0f;
+        Instantiate(fallingPf, spawnPos, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

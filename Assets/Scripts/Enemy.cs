@@ -36,6 +36,8 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer sr;
     private Rigidbody2D rb;
 
+    HelperScript helper;
+
     #endregion
 
     private void Start()
@@ -44,14 +46,18 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
+        helper = gameObject.AddComponent<HelperScript>();
+
         currentHealth = maxHealth;
     }
     void Update()
     {
-        GetPlayerPos(); 
-        LookAtPlayer();
+        if (player != null)
+        {
+            GetPlayerPos();
+            LookAtPlayer();
+        }             
         GroundCheck();
-
         StateFinder();
     }
 
@@ -85,7 +91,7 @@ public class Enemy : MonoBehaviour
     }
 
     void StateFinder()
-    {
+    {        
         if (Physics2D.OverlapCircle(transform.position + new Vector3(0, 1.4f, 0), attackRad, whatIsPlayer) && !meleeCooldown && !attacking)
         {
             StartAttack();
@@ -117,13 +123,13 @@ public class Enemy : MonoBehaviour
         //flips the enemy sprite x depending on which side of the enemy the player is
         if (playerPos.x > transform.position.x)
         {
-            sr.flipX = false;
+            helper.FlipObject(false);
             moveDir = Vector2.right;
         }
         else
         {
             moveDir = Vector2.left;
-            sr.flipX = true;
+            helper.FlipObject(true);
         }
     }
 
@@ -191,7 +197,7 @@ public class Enemy : MonoBehaviour
 
     #region combat mechanics
 
-    /*
+    /* plan
      * make state finder
      * 
      * Check for player being in range

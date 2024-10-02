@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
     public LayerMask whatIsGround;
     private Vector2 moveDir;
 
+
     //attacking
     private bool attacking = false;
     public Transform attackPoint;
@@ -26,8 +27,11 @@ public class PlayerScript : MonoBehaviour
     //components
     Rigidbody2D rb;
     Animator anim;
-    SpriteRenderer sr;
+    
 
+    public GameObject deathScreen;
+
+    GameManager gameManager;
     HelperScript helper;
     
 
@@ -35,11 +39,9 @@ public class PlayerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        sr = GetComponent<SpriteRenderer>();
 
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         helper = gameObject.AddComponent<HelperScript>();
-
-       
 
     }
     #endregion
@@ -74,7 +76,10 @@ public class PlayerScript : MonoBehaviour
         {
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
             anim.SetFloat("Speed", 1);
-            sr.flipX = true;
+            //sr.flipX = true;
+            helper.FlipObject(true);
+
+            
             moveDir = Vector2.left;
         }
 
@@ -82,7 +87,10 @@ public class PlayerScript : MonoBehaviour
         {
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
             anim.SetFloat("Speed", 1);
-            sr.flipX = false;
+            //sr.flipX = false;
+            helper.FlipObject(false);
+
+
             moveDir = Vector2.right;
 
         }
@@ -139,13 +147,14 @@ public class PlayerScript : MonoBehaviour
     
     #endregion
 
-    #region water interaction
+    #region water interaction and checkpoints
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Water"))
         {
             moveSpeed /= 2;
         }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -215,12 +224,15 @@ public class PlayerScript : MonoBehaviour
         {
             Die();
         }
-
     }
     public void Die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Destroy(gameObject);
+        deathScreen.SetActive(true);
+        
     }
     #endregion
+
+    
 
 }
