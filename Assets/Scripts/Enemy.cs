@@ -14,8 +14,15 @@ public class Enemy : MonoBehaviour
     public float enemySpeed;
     public float followRad;
     public float jumpForce;
+
+    bool grounded;
        
     bool chasing;
+
+    //patrolling
+    public float enemyPatrolSpeed;
+    bool cannotTurn = false;
+    bool patrolling;
 
     //combat
     public float attackRad;
@@ -55,7 +62,7 @@ public class Enemy : MonoBehaviour
         if (player != null)
         {
             GetPlayerPos();
-            LookAtPlayer();
+            
         }             
         GroundCheck();
         StateFinder();
@@ -80,7 +87,7 @@ public class Enemy : MonoBehaviour
         }
 
         //if the enemy is moving horizontally, play the walk animation; else, play the idle animation
-        if (chasing)
+        if (chasing || patrolling)
         {
             anim.SetBool("enemyWalk", true);
         }
@@ -92,20 +99,30 @@ public class Enemy : MonoBehaviour
 
     void StateFinder()
     {        
+        //attacking
         if (Physics2D.OverlapCircle(transform.position + new Vector3(0, 1.4f, 0), attackRad, whatIsPlayer) && !meleeCooldown && !attacking)
         {
+            LookAtPlayer();
             StartAttack();
         }
+        //chasing
         else if (Physics2D.OverlapCircle(transform.position + new Vector3(0, 1.4f, 0), followRad, whatIsPlayer) && !attacking)
         {
+            LookAtPlayer();
             ChasePlayer();
             Jumping();
+        }
+        //patrolling
+        else if (!attacking)
+        {
+            Patrolling();
         }
         
     }
 
     private void OnDrawGizmosSelected()
     {
+        //draws the spheres for attack range and chase range
         Gizmos.DrawWireSphere(transform.position + new Vector3(0, 1.4f, 0), followRad);
         Gizmos.DrawWireSphere(transform.position + new Vector3(0, 1.4f, 0), attackRad);
     }
@@ -118,6 +135,33 @@ public class Enemy : MonoBehaviour
         //constantly finds the players position
         playerPos = player.transform.position;
     }
+
+    void Patrolling()
+    {
+        patrolling = true;
+        rb.velocity = new Vector2(enemyPatrolSpeed, 0f);
+        if (rb.velocity.x > 0f)
+        {
+            helper.FlipObject(false);
+        }
+        else
+        {
+            helper.FlipObject(true);
+
+        }
+        if (!grounded && !cannotTurn)
+        {
+            enemyPatrolSpeed *= -1f;
+            cannotTurn = true;
+            Invoke("TurnAroundReset", 1f);
+        }
+    }
+
+    void TurnAroundReset()
+    {
+        cannotTurn = false;
+    }
+
     void LookAtPlayer() //face the player
     {
         //flips the enemy sprite x depending on which side of the enemy the player is
@@ -135,6 +179,8 @@ public class Enemy : MonoBehaviour
 
     void ChasePlayer()   // if the player is close enough, the enemy will chase them
     {
+        patrolling = false;
+
         if (!Physics2D.OverlapCircle(transform.position, followRad, whatIsPlayer))
         {
             chasing = false;
@@ -168,7 +214,12 @@ public class Enemy : MonoBehaviour
         {
             //Debug.DrawRay(transform.position, Vector3.down);
             anim.SetBool("enemyFall", false);
-            anim.SetBool("enemyJump", false);         
+            anim.SetBool("enemyJump", false);
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
         }
     }
 
@@ -211,6 +262,7 @@ public class Enemy : MonoBehaviour
     void StartAttack()
     {
         attacking = true;
+        patrolling = false;
         chasing = false;
 
         anim.SetBool("enemyAttack", true);
