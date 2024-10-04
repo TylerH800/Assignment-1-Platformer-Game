@@ -1,3 +1,5 @@
+//some prints or debug.logs have been left in as comments for any future testing or debugging where they might be needed
+
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,7 +34,7 @@ public class FallingPlatform : MonoBehaviour
     void Fall()
     {
         //platform starts to fall
-        print("fall");
+        //print("fall");
         rb.gravityScale = 0.3f;
         Invoke("IncreaseGrav", 1.5f);
         Invoke("Reset", 4);

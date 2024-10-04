@@ -1,3 +1,5 @@
+//some prints or debug.logs have been left in as comments for any future testing or debugging where they might be needed
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,36 +9,38 @@ public class PlayerScript : MonoBehaviour
 {
     #region variables and references
     //movement
+    [Header("General movement")]
     public float moveSpeed = 7;
+    public float waterSpeedMultiplier = 0.5f;
     public float jumpForce;
-    public bool grounded = true;
     private bool jumping = false;
+    private bool grounded = true;
+    private float groundCheckRange = 0.5f;
 
     public LayerMask whatIsGround;
     private Vector2 moveDir;
 
 
     //attacking
+    [Header("Attacking")]
+    public int attackDamage = 10;
+    public float attackRange, attackVelLimit;
     private bool attacking = false;
     public Transform attackPoint;
-    public float attackRange = 0.5f;
-    public int attackDamage = 10;
     public LayerMask enemyLayers;
 
     //scoring
+    [Header("Scoring")]
     public int coinScore = 10;
     public int enemyScore = 50;
     public int crateScore = 5;
 
-
+    [Header("Deathscreen")]
+    public GameObject deathScreen;
 
     //components
     Rigidbody2D rb;
     Animator anim;
-    
-
-    public GameObject deathScreen;
-
     GameManager gameManager;
     HelperScript helper;
     
@@ -60,48 +64,40 @@ public class PlayerScript : MonoBehaviour
         CheckForDeath();
         GroundCheck();
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            helper.Test();
-        }
-       
+        //if (Input.GetKeyDown(KeyCode.H))
+        //{
+        //    helper.Test();
+        //}
     }
 
     #region basic movement
     void MoveSprite()
     {
-        if (attacking)
+        if (attacking) //stops all movement if attacking
         {
             return;
         }
-        
-        anim.SetFloat("Speed", 0);
 
-        //move the player left and right using the 'a' and 'd' keys, and animate the character
+        //move the player left and right using the 'a' and 'd' keys, animates and flips the character
         if (Input.GetKey("a") == true)
         {
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
-            anim.SetFloat("Speed", 1);
-            //sr.flipX = true;
+            anim.SetFloat("Speed", 1);           
             helper.FlipObject(true);
-
-            
             moveDir = Vector2.left;
         }
 
-        if (Input.GetKey("d") == true)
+        else if (Input.GetKey("d") == true)
         {
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
-            anim.SetFloat("Speed", 1);
-            //sr.flipX = false;
+            anim.SetFloat("Speed", 1);      
             helper.FlipObject(false);
-
-
             moveDir = Vector2.right;
-
         }
-
-
+        else
+        {
+            anim.SetFloat("Speed", 0);
+        }
     }
     
     void Jump()
@@ -135,7 +131,7 @@ public class PlayerScript : MonoBehaviour
     void GroundCheck()
     {
         //check if there is ground immediately below the enemy
-        if (Physics2D.Raycast(transform.position, Vector3.down, 0.5f, whatIsGround))
+        if (Physics2D.Raycast(transform.position, Vector3.down, groundCheckRange, whatIsGround))
         {
             //Debug.DrawRay(transform.position, Vector3.down);
             anim.SetBool("IsJumping", false);
@@ -149,7 +145,6 @@ public class PlayerScript : MonoBehaviour
             grounded = false;
         }
     }
-
     
     #endregion
 
@@ -159,9 +154,10 @@ public class PlayerScript : MonoBehaviour
         //if you enter water, move speed is halved
         if (collision.gameObject.CompareTag("Water"))
         {
-            moveSpeed /= 2;
+            moveSpeed *= waterSpeedMultiplier;
         }
 
+        //if you pick up a coin, you gain score and the coin is destroyed
         if (collision.gameObject.CompareTag("Coin"))
         {
             Destroy(collision.gameObject);
@@ -174,7 +170,7 @@ public class PlayerScript : MonoBehaviour
         //reverts move speed to normal once you leave water
         if (collision.gameObject.CompareTag("Water"))
         {
-            moveSpeed *= 2;
+            moveSpeed /= waterSpeedMultiplier;
         }
     }
 
@@ -183,7 +179,8 @@ public class PlayerScript : MonoBehaviour
     #region combat
     void Attack()
     {
-        if ( Input.GetKeyDown("e") && grounded && rb.velocity.magnitude < 0.5f)
+        //only allows an attack if you are on the ground and stationary
+        if ( Input.GetKeyDown("e") && grounded && Mathf.Abs(rb.velocity.magnitude) < attackVelLimit)
         {
             anim.SetBool("IsAttacking", true);
             attacking = true;            
@@ -193,11 +190,12 @@ public class PlayerScript : MonoBehaviour
 
     void AttackExecute()
     {
-        
+        //detects if an enemy is inside the attack range
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider2D hit in hitEnemies)
         {
+            //deals damage and adds score
             if (hit.transform.CompareTag("Crate"))
             {
                 hit.GetComponent<BoxScript>().TakeDamage(attackDamage); 
@@ -209,10 +207,8 @@ public class PlayerScript : MonoBehaviour
                 hit.GetComponent<Enemy>().TakeDamage(attackDamage);
                 Debug.Log(hit.transform.name);
                 gameManager.GainScore(enemyScore);
-            }
-            
-        }
-        
+            }            
+        }        
     }
 
     public void AttackEnd()
@@ -221,14 +217,14 @@ public class PlayerScript : MonoBehaviour
         attacking = false;        
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected() //draws sphere visuals
     {
         if (attackPoint == null)
         {
             return; 
         }
 
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);        
     }
 
     #endregion
@@ -236,6 +232,7 @@ public class PlayerScript : MonoBehaviour
     #region death
     void CheckForDeath()
     {
+        //maybe temp
         if (transform.position.y < -10 || Input.GetKey(KeyCode.Escape))
         {
             Die();
@@ -244,7 +241,7 @@ public class PlayerScript : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
-        deathScreen.SetActive(true);
+        deathScreen.SetActive(true); //ends the game
         
     }
     #endregion

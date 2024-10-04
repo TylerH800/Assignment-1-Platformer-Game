@@ -7,6 +7,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("UI")]
     //score
     public TextMeshProUGUI scoreText;
     int score = 0;
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
 
     #region deathscreen
 
+    //called from the 'try again' button when you die
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

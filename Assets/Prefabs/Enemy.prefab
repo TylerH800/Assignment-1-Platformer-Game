@@ -129,8 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   enemySpeed: 3.75
-  followRad: 12
+  followRad: 8
   jumpForce: 2
+  enemyPatrolSpeed: 3
   attackRad: 2
   attackCooldown: 0
   whatIsGround:

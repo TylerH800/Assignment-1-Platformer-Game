@@ -1,3 +1,5 @@
+//some prints or debug.logs have been left in as comments for any future testing or debugging where they might be needed
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,43 +8,46 @@ public class Enemy : MonoBehaviour
 {
     #region variables and references
 
+    [Header("Standard Movement")]
+    public float enemySpeed;
+    public float enemyPatrolSpeed;
+
+
+    public float jumpForce;
+    public float jumpDetectRange = 1.6f;
+    private float rayYOffset = 0.8f;
+    private float groundCheckRange = 0.5f;
+    
+    bool grounded, chasing, patrolling;
+    bool canTurn = true;
+
+    private Vector2 playerPos, moveDir;
+
+    private float sphereYOffest = 1.4f; //centres the spheres for player detection
+    public float followRadius;
+
+    public LayerMask whatIsGround, whatIsPlayer;
+    public GameObject player;
+
+    [Header("Combat")]
     //health
     public int maxHealth = 20;
     int currentHealth;
 
-    //movement
-    public float enemySpeed;
-    public float followRad;
-    public float jumpForce;
+    //attacking
+    public float attackRadius;
+    public float meleeCooldownLength = 2f;
 
-    bool grounded;
-       
-    bool chasing;
-
-    //patrolling
-    public float enemyPatrolSpeed;
-    bool cannotTurn = false;
-    bool patrolling;
-
-    //combat
-    public float attackRad;
-    public float attackCooldown;
     bool attacking = false;
     bool meleeCooldown;
     
-    //player and ground detection
-    public LayerMask whatIsGround;
-    public LayerMask whatIsPlayer;
 
-    private Vector2 playerPos;
-    private Vector2 moveDir;
+    
 
     //references
-    public GameObject player;
     private Animator anim;
     private SpriteRenderer sr;
     private Rigidbody2D rb;
-
     HelperScript helper;
 
     #endregion
@@ -52,7 +57,6 @@ public class Enemy : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
         helper = gameObject.AddComponent<HelperScript>();
 
         currentHealth = maxHealth;
@@ -61,8 +65,7 @@ public class Enemy : MonoBehaviour
     {
         if (player != null)
         {
-            GetPlayerPos();
-            
+            GetPlayerPos();            
         }             
         GroundCheck();
         StateFinder();
@@ -97,69 +100,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void StateFinder()
-    {        
-        //attacking
-        if (Physics2D.OverlapCircle(transform.position + new Vector3(0, 1.4f, 0), attackRad, whatIsPlayer) && !meleeCooldown && !attacking)
-        {
-            LookAtPlayer();
-            StartAttack();
-        }
-        //chasing
-        else if (Physics2D.OverlapCircle(transform.position + new Vector3(0, 1.4f, 0), followRad, whatIsPlayer) && !attacking)
-        {
-            LookAtPlayer();
-            ChasePlayer();
-            Jumping();
-        }
-        //patrolling
-        else if (!attacking)
-        {
-            Patrolling();
-        }
-        
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        //draws the spheres for attack range and chase range
-        Gizmos.DrawWireSphere(transform.position + new Vector3(0, 1.4f, 0), followRad);
-        Gizmos.DrawWireSphere(transform.position + new Vector3(0, 1.4f, 0), attackRad);
-    }
-
-
-
-    #region movement
     void GetPlayerPos()
     {
         //constantly finds the players position
         playerPos = player.transform.position;
-    }
-
-    void Patrolling()
-    {
-        patrolling = true;
-        rb.velocity = new Vector2(enemyPatrolSpeed, 0f);
-        if (rb.velocity.x > 0f)
-        {
-            helper.FlipObject(false);
-        }
-        else
-        {
-            helper.FlipObject(true);
-
-        }
-        if (!grounded && !cannotTurn)
-        {
-            enemyPatrolSpeed *= -1f;
-            cannotTurn = true;
-            Invoke("TurnAroundReset", 1f);
-        }
-    }
-
-    void TurnAroundReset()
-    {
-        cannotTurn = false;
     }
 
     void LookAtPlayer() //face the player
@@ -177,17 +121,99 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void ChasePlayer()   // if the player is close enough, the enemy will chase them
+    void GroundCheck()
     {
-        patrolling = false;
-
-        if (!Physics2D.OverlapCircle(transform.position, followRad, whatIsPlayer))
+        //check if there is ground immediately below the enemy
+        if (Physics2D.Raycast(transform.position, Vector3.down, groundCheckRange, whatIsGround))
         {
-            chasing = false;
-            return;  //checks if the player is within the chase range
+            //Debug.DrawRay(transform.position, Vector3.down);
+            anim.SetBool("enemyFall", false);
+            anim.SetBool("enemyJump", false);
+            grounded = true;
         }
-        chasing = true;
-        //directional movement
+        else
+        {
+            grounded = false;
+        }
+    }
+
+
+    #region State Finding
+
+    void StateFinder()
+    {        
+        //attacking
+        if (Physics2D.OverlapCircle(transform.position + new Vector3(0, sphereYOffest, 0), attackRadius, whatIsPlayer) && !meleeCooldown && !attacking)
+        {
+            LookAtPlayer();
+            StartAttack();
+        }
+        //chasing
+        else if (Physics2D.OverlapCircle(transform.position + new Vector3(0, sphereYOffest, 0), followRadius, whatIsPlayer) && !attacking)
+        {
+            // if the player is close enough, the enemy will chase them
+            patrolling = false;
+            chasing = true;
+
+            LookAtPlayer();
+            ChasePlayer();
+            Jumping();
+        }
+        //patrolling
+        else if (!attacking)
+        {
+            Patrolling();
+        }        
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        //draws the spheres for attack range and chase range
+        Gizmos.DrawWireSphere(transform.position + new Vector3(0, sphereYOffest, 0), followRadius);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(0, sphereYOffest, 0), attackRadius);
+    }
+
+    #endregion
+
+    #region Patrolling
+
+    void Patrolling()
+    {
+        patrolling = true;
+        rb.velocity = new Vector2(enemyPatrolSpeed, 0f);
+        
+        //changes the sprite direction based off of the movement direction
+        if (rb.velocity.x > 0f)
+        {
+            helper.FlipObject(false);
+        }
+        else
+        {
+            helper.FlipObject(true);
+
+        }
+        
+        //makes the enemy move in the opposite direction if it reaches the end of a platform
+        if (!grounded && canTurn)
+        {
+            enemyPatrolSpeed *= -1f;
+            canTurn = false;
+            Invoke("TurnAroundReset", 1f); //prevents the enemy from getting stuck in a loop of turning round every frame
+        }
+    }
+
+    void TurnAroundReset()
+    {
+        canTurn = true;
+    }
+
+    #endregion
+
+    #region Chasing
+
+    void ChasePlayer()   
+    {        
+        //changes direction based on the players position relative to the enemy
         if (playerPos.x > transform.position.x)
         {           
             rb.velocity = new Vector3(enemySpeed, rb.velocity.y);
@@ -201,36 +227,24 @@ public class Enemy : MonoBehaviour
     void Jumping() //if the enemy walks too close to elevated ground that it is facing, jump
     {
         //Debug.DrawRay(transform.position + new Vector3(0, 0.8f), moveDir, Color.red);
-        if (Physics2D.Raycast(transform.position + new Vector3(0, 0.8f), moveDir, 1.6f, whatIsGround))
+        if (Physics2D.Raycast(transform.position + new Vector3(0, rayYOffset), moveDir, jumpDetectRange, whatIsGround))
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }    
 
-    void GroundCheck()
-    {
-        //check if there is ground immediately below the enemy
-        if (Physics2D.Raycast(transform.position, Vector3.down, 0.5f, whatIsGround))
-        {
-            //Debug.DrawRay(transform.position, Vector3.down);
-            anim.SetBool("enemyFall", false);
-            anim.SetBool("enemyJump", false);
-            grounded = true;
-        }
-        else
-        {
-            grounded = false;
-        }
-    }
+    
 
     #endregion
 
     #region taking damage
+
     public void TakeDamage(int damage)
     {
+        //takes damage based on a value passed in
         currentHealth -= damage;
         // Debug.Log(currentHealth)
-        ;
+        
         if (currentHealth <= 0)
         {
             Die();
@@ -247,20 +261,10 @@ public class Enemy : MonoBehaviour
     #endregion
 
     #region combat mechanics
-
-    /* plan
-     * make state finder
-     * 
-     * Check for player being in range
-     * Stop walking and wait a mo
-     * Start attack animation
-     * During attack animation, check for player in range (reference player script)
-     * wait for a mo
-     * carry on as normal
-     */
     
     void StartAttack()
     {
+        //starts animation and prevents movement
         attacking = true;
         patrolling = false;
         chasing = false;
@@ -273,29 +277,29 @@ public class Enemy : MonoBehaviour
 
     void ExecuteAttack()
     {
-        print("execute");
-
-        Collider2D hit = Physics2D.OverlapCircle(transform.position + new Vector3(0, 1.4f, 0), attackRad, whatIsPlayer);
-
+        //checks for a player in the hit range, and kills it if present
+        //print("execute");
+        Collider2D hit = Physics2D.OverlapCircle(transform.position + new Vector3(0, sphereYOffest, 0), attackRadius, whatIsPlayer);
         hit.GetComponent<PlayerScript>().Die();
-
-
     }
 
     void EndAttack()
     {
+        //lets the enemy move again and starts an attack cooldown timer, preventing the enemy from attacking straight away
         //print("resetting");
         anim.SetBool("enemyAttack", false);
         attacking = false;
         meleeCooldown = true;
-        Invoke("EndMeleeCooldown", 2f);
+        Invoke("EndMeleeCooldown", meleeCooldownLength);
     }
 
     void EndMeleeCooldown()
     {
+        //lets the enemy attack again
         //print("cooldown over");
         meleeCooldown = false;
     }
+    
     #endregion
 
 

@@ -133,17 +133,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  waterSpeedMultiplier: 0.5
   jumpForce: 30
-  grounded: 1
+  groundCheckRange: 0.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
-  attackPoint: {fileID: 7405390448143918969}
-  attackRange: 1.2
   attackDamage: 20
+  attackRange: 1
+  attackPoint: {fileID: 7405390448143918969}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 384
+  coinScore: 10
+  enemyScore: 50
+  crateScore: 5
+  deathScreen: {fileID: 0}
 --- !u!50 &6365160017172249466
 Rigidbody2D:
   serializedVersion: 4

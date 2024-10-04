@@ -21838,8 +21838,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2118967249}
     - target: {fileID: 8611034165673893442, guid: ad120045ca03ec4418d0be0bcf667e58, type: 3}
-      propertyPath: enemyPatrolSpeed
-      value: 3
+      propertyPath: attackRadius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611034165673893442, guid: ad120045ca03ec4418d0be0bcf667e58, type: 3}
+      propertyPath: followRadius
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611034165673893442, guid: ad120045ca03ec4418d0be0bcf667e58, type: 3}
+      propertyPath: attackCooldown
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23342,23 +23350,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2248155619997398352, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
       propertyPath: attackRange
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2248155619997398352, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 392904526}
+    - target: {fileID: 2248155619997398352, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
+      propertyPath: attackVelLimit
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4700003188064601049, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7144820195454750902, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 62.07
+      value: 62.14
       objectReference: {fileID: 0}
     - target: {fileID: 7144820195454750902, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 7144820195454750902, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
       propertyPath: m_LocalPosition.z
