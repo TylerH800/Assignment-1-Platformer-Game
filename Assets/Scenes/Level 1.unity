@@ -21846,6 +21846,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8611034165673893442, guid: ad120045ca03ec4418d0be0bcf667e58, type: 3}
+      propertyPath: bloodSplatter
+      value: 
+      objectReference: {fileID: 7533315650969846463, guid: 5216280303a011845b848a29fc6f5b23, type: 3}
+    - target: {fileID: 8611034165673893442, guid: ad120045ca03ec4418d0be0bcf667e58, type: 3}
       propertyPath: attackCooldown
       value: 2
       objectReference: {fileID: 0}
@@ -23356,6 +23360,10 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 392904526}
+    - target: {fileID: 2248155619997398352, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
+      propertyPath: bloodSplatter
+      value: 
+      objectReference: {fileID: 7533315650969846463, guid: 5216280303a011845b848a29fc6f5b23, type: 3}
     - target: {fileID: 2248155619997398352, guid: 8f6d56fce7f9f7d48be40152369cc0c4, type: 3}
       propertyPath: attackVelLimit
       value: 2.5

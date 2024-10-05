@@ -40,9 +40,9 @@ public class Enemy : MonoBehaviour
 
     bool attacking = false;
     bool meleeCooldown;
-    
 
-    
+    public ParticleSystem bloodSplatter;
+
 
     //references
     private Animator anim;
@@ -254,6 +254,7 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         //print("die");
+        Instantiate(bloodSplatter, transform.position + new Vector3(0, 1.5f), Quaternion.identity);
         Destroy(gameObject);
 
     }
@@ -280,6 +281,7 @@ public class Enemy : MonoBehaviour
         //checks for a player in the hit range, and kills it if present
         //print("execute");
         Collider2D hit = Physics2D.OverlapCircle(transform.position + new Vector3(0, sphereYOffest, 0), attackRadius, whatIsPlayer);
+        Instantiate(bloodSplatter, hit.transform.position + new Vector3(0, 1), Quaternion.identity);
         hit.GetComponent<PlayerScript>().Die();
     }
 

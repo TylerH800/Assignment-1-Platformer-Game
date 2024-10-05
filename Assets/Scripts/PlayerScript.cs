@@ -35,7 +35,7 @@ public class PlayerScript : MonoBehaviour
     public int enemyScore = 50;
     public int crateScore = 5;
 
-    [Header("Deathscreen")]
+    [Header("Death")]
     public GameObject deathScreen;
 
     //components
@@ -240,6 +240,7 @@ public class PlayerScript : MonoBehaviour
     }
     public void Die()
     {
+        
         Destroy(gameObject);
         deathScreen.SetActive(true); //ends the game
         
