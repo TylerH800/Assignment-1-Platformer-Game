@@ -16,9 +16,15 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timerText;
     float time = 0;
 
+
     //deathscreen
     public TextMeshProUGUI finalScoreText;
-    
+
+    //winscreen
+    public GameObject winScreen;
+    public TextMeshProUGUI finalTimeText;
+    public TextMeshProUGUI winScoreText;
+
     void Update()
     {
         DisplayTime();
@@ -43,22 +49,48 @@ public class GameManager : MonoBehaviour
         //displays the current score
         scoreText.text = "Score: " + score;
 
-        //if you die, your score is displayed
-        if (finalScoreText != null)
-        {
-            finalScoreText.text = "Your final score was " + score;
-        }
+        
     }
 
     #endregion
 
     #region deathscreen
 
+    public void DisplayDeathScreen()
+    {
+        //removes the text at the top the lazy way
+        scoreText.text = "";
+        timerText.text = "";
+
+        //if you die, your score is displayed
+        if (finalScoreText != null)
+        {
+            finalScoreText.text = "Your final score was " + score;
+        }
+
+    }
+
     //called from the 'try again' button when you die
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    #endregion
+
+    #region winscreen
+
+    public void DisplayWinScreen()
+    {
+        //turns winscreen on and turn the text at the top off
+        winScreen.SetActive(true);
+        finalTimeText.text = "Time: " + time.ToString("0");
+        winScoreText.text = "Score: " + score;
+
+        scoreText.text = "";
+        timerText.text = "";
+    }
+
 
     #endregion
 

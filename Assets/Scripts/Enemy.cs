@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     [Header("Combat")]
     //health
     public int maxHealth = 20;
-    int currentHealth;
+    public int currentHealth;
 
     //attacking
     public float attackRadius;

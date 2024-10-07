@@ -250,6 +250,7 @@ public class PlayerScript : MonoBehaviour
         
         Destroy(gameObject);
         deathScreen.SetActive(true); //ends the game
+        gameManager.DisplayDeathScreen();
         
     }
     #endregion
