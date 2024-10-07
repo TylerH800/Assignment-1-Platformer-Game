@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 4021400873375476229}
   - component: {fileID: 5236002073061674369}
   - component: {fileID: 3106220263455887594}
-  - component: {fileID: 8603516766757819567}
   m_Layer: 3
   m_Name: Falling Platform
   m_TagString: Ground
@@ -309,19 +308,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.3635927, y: 0.39840508}
   m_EdgeRadius: 0
---- !u!114 &8603516766757819567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4200543622822896106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4db7be2cce4d784298db631caad4061, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallingPf: {fileID: 0}
 --- !u!1 &6736038447416707500
 GameObject:
   m_ObjectHideFlags: 0

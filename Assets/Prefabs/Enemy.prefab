@@ -127,13 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81cbce2ccb4918f40a849766d4f8f038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
   enemySpeed: 3.75
-  followRad: 8
-  jumpForce: 2
   enemyPatrolSpeed: 3
-  attackRad: 2
-  attackCooldown: 0
+  jumpForce: 2
+  jumpDetectRange: 1.6
+  followRadius: 8
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
@@ -141,6 +139,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   player: {fileID: 0}
+  maxHealth: 10
+  attackRadius: 2
+  meleeCooldownLength: 2
+  bloodSplatter: {fileID: 7533315650969846463, guid: 5216280303a011845b848a29fc6f5b23, type: 3}
 --- !u!70 &8631061039028170054
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

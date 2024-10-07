@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Checkpoint
   - Coin
+  - BoundsCollider
   layers:
   - Default
   - TransparentFX

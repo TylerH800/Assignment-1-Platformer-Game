@@ -23,6 +23,7 @@ public class HelperScript : MonoBehaviour
         {
             sr.flipX = false;
         }
+
     }
 
     

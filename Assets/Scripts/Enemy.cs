@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
     private float groundCheckRange = 0.5f;
     
     bool grounded, chasing, patrolling;
-    bool canTurn = true;
 
     private Vector2 playerPos, moveDir;
 
@@ -135,6 +134,7 @@ public class Enemy : MonoBehaviour
         {
             grounded = false;
         }
+
     }
 
 
@@ -160,9 +160,10 @@ public class Enemy : MonoBehaviour
             Jumping();
         }
         //patrolling
-        else if (!attacking)
+        else if (!attacking && grounded)
         {
             Patrolling();
+            ExtendedRayCollisionCheck();
         }        
     }
 
@@ -179,6 +180,7 @@ public class Enemy : MonoBehaviour
 
     void Patrolling()
     {
+
         patrolling = true;
         rb.velocity = new Vector2(enemyPatrolSpeed, 0f);
         
@@ -186,26 +188,27 @@ public class Enemy : MonoBehaviour
         if (rb.velocity.x > 0f)
         {
             helper.FlipObject(false);
+            moveDir.x = 0.8f;
         }
         else
         {
+            moveDir.x = -0.8f;
             helper.FlipObject(true);
 
         }
         
-        //makes the enemy move in the opposite direction if it reaches the end of a platform
-        if (!grounded && canTurn)
+    }
+    void ExtendedRayCollisionCheck()
+    {
+        //Debug.DrawRay(transform.position + new Vector3(moveDir.x, 0, 0), Vector3.down, Color.green);
+        //Debug.Log(moveDir.x);
+        if (!Physics2D.Raycast(transform.position + new Vector3(moveDir.x, 0, 0), Vector2.down, groundCheckRange, whatIsGround))
         {
-            enemyPatrolSpeed *= -1f;
-            canTurn = false;
-            Invoke("TurnAroundReset", 1f); //prevents the enemy from getting stuck in a loop of turning round every frame
+            moveDir = -moveDir;
+            enemyPatrolSpeed = -enemyPatrolSpeed;
         }
     }
 
-    void TurnAroundReset()
-    {
-        canTurn = true;
-    }
 
     #endregion
 
@@ -231,9 +234,17 @@ public class Enemy : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-    }    
+    }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("BoundsCollider"))
+        {
+            Die();
+        }
+    }
+
+
 
     #endregion
 
@@ -281,8 +292,11 @@ public class Enemy : MonoBehaviour
         //checks for a player in the hit range, and kills it if present
         //print("execute");
         Collider2D hit = Physics2D.OverlapCircle(transform.position + new Vector3(0, sphereYOffest, 0), attackRadius, whatIsPlayer);
-        Instantiate(bloodSplatter, hit.transform.position + new Vector3(0, 1), Quaternion.identity);
-        hit.GetComponent<PlayerScript>().Die();
+        if (hit != null)
+        {
+            Instantiate(bloodSplatter, hit.transform.position + new Vector3(0, 1), Quaternion.identity);
+            hit.GetComponent<PlayerScript>().Die();
+        }
     }
 
     void EndAttack()

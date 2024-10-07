@@ -164,6 +164,11 @@ public class PlayerScript : MonoBehaviour
             gameManager.GainScore(coinScore);
         }
 
+        if (collision.gameObject.CompareTag("BoundsCollider"))
+        {
+            Die();
+        }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -233,7 +238,7 @@ public class PlayerScript : MonoBehaviour
     void CheckForDeath()
     {
         //maybe temp
-        if (transform.position.y < -10 || Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape))
         {
             Die();
         }

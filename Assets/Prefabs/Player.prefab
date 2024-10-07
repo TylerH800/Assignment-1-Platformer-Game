@@ -135,12 +135,12 @@ MonoBehaviour:
   moveSpeed: 7
   waterSpeedMultiplier: 0.5
   jumpForce: 30
-  groundCheckRange: 0.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
   attackDamage: 20
-  attackRange: 1
+  attackRange: 0.5
+  attackVelLimit: 1
   attackPoint: {fileID: 7405390448143918969}
   enemyLayers:
     serializedVersion: 2
