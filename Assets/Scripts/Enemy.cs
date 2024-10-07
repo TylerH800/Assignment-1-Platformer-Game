@@ -254,7 +254,7 @@ public class Enemy : MonoBehaviour
     {
         //takes damage based on a value passed in
         currentHealth -= damage;
-        // Debug.Log(currentHealth)
+        Debug.Log(currentHealth);
         
         if (currentHealth <= 0)
         {

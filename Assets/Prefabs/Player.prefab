@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  waterSpeedMultiplier: 0.5
+  waterSpeedMultiplier: 0.6
   jumpForce: 30
   whatIsGround:
     serializedVersion: 2

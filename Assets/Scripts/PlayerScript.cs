@@ -170,6 +170,8 @@ public class PlayerScript : MonoBehaviour
         }
 
     }
+
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         //reverts move speed to normal once you leave water
