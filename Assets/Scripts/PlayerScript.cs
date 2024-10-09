@@ -214,7 +214,13 @@ public class PlayerScript : MonoBehaviour
                 hit.GetComponent<Enemy>().TakeDamage(attackDamage);
                 Debug.Log(hit.transform.name);
                 gameManager.GainScore(enemyScore);
-            }            
+            }
+            else if (hit.transform.CompareTag("Boss"))
+            {
+                hit.GetComponent<BossScript>().TakeDamage(attackDamage);
+                Debug.Log(hit.transform.name);
+               
+            }
         }        
     }
 
@@ -244,6 +250,11 @@ public class PlayerScript : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void StartDeath()
+    {
+        anim.SetBool("IsDying", true);
     }
     public void Die()
     {

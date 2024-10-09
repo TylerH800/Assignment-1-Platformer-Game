@@ -17,14 +17,13 @@ public class CameraFollow : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
-    void Update()
+    void LateUpdate()
     {
         //camera follows player position
         if (target != null)
         {
             //makes the camera follow smoothly
-            Vector3 targetPos = target.position + offset;
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
+            transform.position = target.position + offset;
         }
     }
 }

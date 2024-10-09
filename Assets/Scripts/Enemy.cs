@@ -293,9 +293,8 @@ public class Enemy : MonoBehaviour
         //print("execute");
         Collider2D hit = Physics2D.OverlapCircle(transform.position + new Vector3(0, sphereYOffest, 0), attackRadius, whatIsPlayer);
         if (hit != null)
-        {
-            Instantiate(bloodSplatter, hit.transform.position + new Vector3(0, 1), Quaternion.identity);
-            hit.GetComponent<PlayerScript>().Die();
+        {            
+            hit.GetComponent<PlayerScript>().StartDeath();
         }
     }
 

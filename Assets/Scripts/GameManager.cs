@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI finalTimeText;
     public TextMeshProUGUI winScoreText;
 
+    public GameObject hud;
+
     void Update()
     {
         DisplayTime();
@@ -58,9 +60,8 @@ public class GameManager : MonoBehaviour
 
     public void DisplayDeathScreen()
     {
-        //removes the text at the top the lazy way
-        scoreText.text = "";
-        timerText.text = "";
+        hud.SetActive(false);
+
 
         //if you die, your score is displayed
         if (finalScoreText != null)
@@ -87,8 +88,7 @@ public class GameManager : MonoBehaviour
         finalTimeText.text = "Time: " + time.ToString("0");
         winScoreText.text = "Score: " + score;
 
-        scoreText.text = "";
-        timerText.text = "";
+        hud.SetActive(false);
     }
 
 
