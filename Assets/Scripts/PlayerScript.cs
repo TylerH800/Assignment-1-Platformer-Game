@@ -37,6 +37,7 @@ public class PlayerScript : MonoBehaviour
 
     [Header("Death")]
     public GameObject deathScreen;
+    bool dying = false;
 
     //components
     Rigidbody2D rb;
@@ -73,7 +74,7 @@ public class PlayerScript : MonoBehaviour
     #region basic movement
     void MoveSprite()
     {
-        if (attacking) //stops all movement if attacking
+        if (attacking || dying) //stops all movement if attacking
         {
             return;
         }
@@ -103,7 +104,7 @@ public class PlayerScript : MonoBehaviour
     void Jump()
     {
         //checks for the player being on the ground and gets spacebar input
-        if (Input.GetKeyDown("space") && grounded && !attacking)
+        if (Input.GetKeyDown("space") && grounded && !attacking && !dying)
         {
             //makes the player jump, stops them from jumping in the air and animates the jump
             rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
@@ -112,6 +113,10 @@ public class PlayerScript : MonoBehaviour
             jumping = true;
         }
 
+        if (dying)
+        {
+            return;
+        }
         //change the enemy animation depending on whether enemy is moving up or down
         if (rb.velocity.y >= 0.1f)
         {
@@ -186,6 +191,11 @@ public class PlayerScript : MonoBehaviour
     #region combat
     void Attack()
     {
+        if (dying)
+        {
+            return;
+        }
+
         //only allows an attack if you are on the ground and stationary
         if ( Input.GetKeyDown("e") && grounded && Mathf.Abs(rb.velocity.magnitude) < attackVelLimit)
         {
@@ -197,6 +207,7 @@ public class PlayerScript : MonoBehaviour
 
     void AttackExecute()
     {
+        Debug.Log("attack");
         //detects if an enemy is inside the attack range
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
@@ -255,6 +266,8 @@ public class PlayerScript : MonoBehaviour
     public void StartDeath()
     {
         anim.SetBool("IsDying", true);
+        dying = true;
+
     }
     public void Die()
     {

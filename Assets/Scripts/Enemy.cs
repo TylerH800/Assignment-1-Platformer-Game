@@ -16,13 +16,13 @@ public class Enemy : MonoBehaviour
     public float jumpForce;
     public float jumpDetectRange = 1.6f;
     private float rayYOffset = 0.8f;
-    private float groundCheckRange = 0.5f;
+    private float groundCheckRange = 1f;
     
     bool grounded, chasing, patrolling;
 
     private Vector2 playerPos, moveDir;
 
-    private float sphereYOffest = 1.4f; //centres the spheres for player detection
+    private float sphereYOffest = 1.2f; //centres the spheres for player detection
     public float followRadius;
 
     public LayerMask whatIsGround, whatIsPlayer;
@@ -39,6 +39,10 @@ public class Enemy : MonoBehaviour
 
     bool attacking = false;
     bool meleeCooldown;
+
+    //dying
+    bool dying = false;
+        
 
     public ParticleSystem bloodSplatter;
 
@@ -125,7 +129,7 @@ public class Enemy : MonoBehaviour
         //check if there is ground immediately below the enemy
         if (Physics2D.Raycast(transform.position, Vector3.down, groundCheckRange, whatIsGround))
         {
-            //Debug.DrawRay(transform.position, Vector3.down);
+            Debug.DrawRay(transform.position, Vector3.down, Color.green);
             anim.SetBool("enemyFall", false);
             anim.SetBool("enemyJump", false);
             grounded = true;
@@ -141,12 +145,18 @@ public class Enemy : MonoBehaviour
     #region State Finding
 
     void StateFinder()
-    {        
+    {     
+        if (dying)
+        {
+            return;
+        }
+
         //attacking
         if (Physics2D.OverlapCircle(transform.position + new Vector3(0, sphereYOffest, 0), attackRadius, whatIsPlayer) && !meleeCooldown && !attacking)
         {
             LookAtPlayer();
             StartAttack();
+            print(attacking);
         }
         //chasing
         else if (Physics2D.OverlapCircle(transform.position + new Vector3(0, sphereYOffest, 0), followRadius, whatIsPlayer) && !attacking)
@@ -158,12 +168,14 @@ public class Enemy : MonoBehaviour
             LookAtPlayer();
             ChasePlayer();
             Jumping();
+            //print("chase");
         }
         //patrolling
         else if (!attacking && grounded)
         {
             Patrolling();
             ExtendedRayCollisionCheck();
+            //print("patrol");
         }        
     }
 
@@ -180,9 +192,10 @@ public class Enemy : MonoBehaviour
 
     void Patrolling()
     {
-
+        //Debug.Log("patrol");
         patrolling = true;
         rb.velocity = new Vector2(enemyPatrolSpeed, 0f);
+        
         
         //changes the sprite direction based off of the movement direction
         if (rb.velocity.x > 0f)
@@ -202,7 +215,7 @@ public class Enemy : MonoBehaviour
     {
         //Debug.DrawRay(transform.position + new Vector3(moveDir.x, 0, 0), Vector3.down, Color.green);
         //Debug.Log(moveDir.x);
-        if (!Physics2D.Raycast(transform.position + new Vector3(moveDir.x, 0, 0), Vector2.down, groundCheckRange, whatIsGround))
+        if (!Physics2D.Raycast(transform.position + new Vector3(moveDir.x * 1.5f, 0, 0), Vector2.down, groundCheckRange, whatIsGround))
         {
             moveDir = -moveDir;
             enemyPatrolSpeed = -enemyPatrolSpeed;
@@ -264,16 +277,19 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        //print("die");
-        Instantiate(bloodSplatter, transform.position + new Vector3(0, 1.5f), Quaternion.identity);
-        Destroy(gameObject);
+        anim.SetBool("enemyDie", true);
+        dying = true;
+    }
 
+    public void Despawn()
+    {
+        Destroy(gameObject);
     }
 
     #endregion
 
     #region combat mechanics
-    
+
     void StartAttack()
     {
         //starts animation and prevents movement
@@ -298,10 +314,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
     void EndAttack()
     {
         //lets the enemy move again and starts an attack cooldown timer, preventing the enemy from attacking straight away
-        //print("resetting");
+        print("resetting");
         anim.SetBool("enemyAttack", false);
         attacking = false;
         meleeCooldown = true;
