@@ -69,13 +69,7 @@ public class GameManager : MonoBehaviour
             finalScoreText.text = "Your final score was " + score;
         }
 
-    }
-
-    //called from the 'try again' button when you die
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    }  
 
     #endregion
 
@@ -90,7 +84,6 @@ public class GameManager : MonoBehaviour
 
         hud.SetActive(false);
     }
-
 
     #endregion
 
