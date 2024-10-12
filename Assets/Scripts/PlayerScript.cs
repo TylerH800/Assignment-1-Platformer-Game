@@ -18,7 +18,7 @@ public class PlayerScript : MonoBehaviour
     private float groundCheckRange = 0.5f;
 
     public LayerMask whatIsGround;
-    private Vector2 moveDir;
+    public Vector2 moveDir;
 
 
     //attacking
@@ -26,8 +26,12 @@ public class PlayerScript : MonoBehaviour
     public int attackDamage = 10;
     public float attackRange, attackVelLimit;
     private bool attacking = false;
+    private bool canThrow = true;
+    public float throwCooldown = 0.5f;
     public Transform attackPoint;
+    public Transform shootPoint;
     public LayerMask enemyLayers;
+    public GameObject knifePrefab;
 
     //scoring
     [Header("Scoring")]
@@ -87,6 +91,7 @@ public class PlayerScript : MonoBehaviour
             helper.FlipObject(true);
             moveDir = Vector2.left;
         }
+        
 
         else if (Input.GetKey("d") == true)
         {
@@ -154,6 +159,7 @@ public class PlayerScript : MonoBehaviour
     #endregion
 
     #region collision
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if you enter water, move speed is halved
@@ -191,17 +197,25 @@ public class PlayerScript : MonoBehaviour
     #region combat
     void Attack()
     {
-        if (dying)
+        if (dying || !grounded || Mathf.Abs(rb.velocity.magnitude) > attackVelLimit)
         {
             return;
         }
 
         //only allows an attack if you are on the ground and stationary
-        if ( Input.GetKeyDown("e") && grounded && Mathf.Abs(rb.velocity.magnitude) < attackVelLimit)
+        if ( Input.GetKeyDown("e"))
         {
             anim.SetBool("IsAttacking", true);
             attacking = true;            
         }  
+
+        if (Input.GetKeyDown("q") && canThrow)
+        {
+            Instantiate(knifePrefab, shootPoint.position, Quaternion.Euler(moveDir));
+            //stops you from throwing again for a set time
+            canThrow = false;
+            Invoke("CanThrow", throwCooldown);
+        }
  
     }
 
@@ -251,6 +265,11 @@ public class PlayerScript : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);        
     }
 
+    void CanThrow()
+    {
+        canThrow = true;
+    }
+        
     #endregion
 
     #region death
