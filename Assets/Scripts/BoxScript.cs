@@ -8,6 +8,8 @@ public class BoxScript : MonoBehaviour
 {
     public int maxHealth = 10;
     int currentHealth;
+
+    public ParticleSystem destroyParticle;
     
     private void Start()
     {
@@ -22,6 +24,7 @@ public class BoxScript : MonoBehaviour
 ;
         if (currentHealth <= 0)
         {
+            Instantiate(destroyParticle, transform.position, Quaternion.identity);
             Die();
         }
     }

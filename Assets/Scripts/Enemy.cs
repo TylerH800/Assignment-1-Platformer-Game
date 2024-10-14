@@ -43,13 +43,8 @@ public class Enemy : MonoBehaviour
     //dying
     bool dying = false;
         
-
-    public ParticleSystem bloodSplatter;
-
-
     //references
     private Animator anim;
-    private SpriteRenderer sr;
     private Rigidbody2D rb;
     HelperScript helper;
 
@@ -57,7 +52,6 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         helper = gameObject.AddComponent<HelperScript>();
@@ -273,6 +267,15 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            anim.SetBool("enemyHurt", true);
+        }
+    }
+    
+    public void EndHurtAnim()
+    {
+        anim.SetBool("enemyHurt", false);
     }
 
     void Die()

@@ -58,12 +58,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -93,10 +93,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,6 +115,54 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -122,12 +170,12 @@ TextureImporter:
       name: Idle_0
       rect:
         serializedVersion: 2
-        x: 37
+        x: 38
         y: 0
-        width: 49
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 47
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -143,12 +191,12 @@ TextureImporter:
       name: Idle_1
       rect:
         serializedVersion: 2
-        x: 165
+        x: 166
         y: 0
-        width: 49
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 47
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,12 +212,12 @@ TextureImporter:
       name: Idle_2
       rect:
         serializedVersion: 2
-        x: 293
+        x: 294
         y: 0
-        width: 49
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 47
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,12 +233,12 @@ TextureImporter:
       name: Idle_3
       rect:
         serializedVersion: 2
-        x: 421
+        x: 422
         y: 0
-        width: 49
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 47
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,12 +254,12 @@ TextureImporter:
       name: Idle_4
       rect:
         serializedVersion: 2
-        x: 549
+        x: 550
         y: 0
-        width: 49
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 47
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,12 +275,12 @@ TextureImporter:
       name: Idle_5
       rect:
         serializedVersion: 2
-        x: 677
+        x: 678
         y: 0
-        width: 49
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 47
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,12 +296,12 @@ TextureImporter:
       name: Idle_6
       rect:
         serializedVersion: 2
-        x: 805
+        x: 806
         y: 0
-        width: 49
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 47
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -269,12 +317,12 @@ TextureImporter:
       name: Idle_7
       rect:
         serializedVersion: 2
-        x: 933
+        x: 934
         y: 0
-        width: 50
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 48
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,14 +337,22 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 094f0052474e8554186c2e80316882b2
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Idle_0: 4723107735738678597
+      Idle_1: -7385789195546760866
+      Idle_2: 3234629978573100161
+      Idle_3: 6373048116405451881
+      Idle_4: 7264182050183361747
+      Idle_5: -2834552850196481573
+      Idle_6: 3278449094680734212
+      Idle_7: 3384493420599841878
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

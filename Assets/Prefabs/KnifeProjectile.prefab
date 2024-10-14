@@ -172,5 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a721ea8f9411ff245b2209e536bd52eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 15
   upForce: 4
+  damage: 10
+  destroyTime: 2.5
+  hitParticle: {fileID: 2617226224382581783, guid: 6bb9d2602c9cf724c8afa62b12b64126, type: 3}

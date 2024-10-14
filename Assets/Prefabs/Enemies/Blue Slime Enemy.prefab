@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7771175834418156705}
   - component: {fileID: 4620311852476542816}
-  - component: {fileID: 5983272521838682484}
   - component: {fileID: 6849498491581785400}
-  - component: {fileID: 1514953313534932630}
   - component: {fileID: 3844791979389986265}
+  - component: {fileID: 1535367897404203548}
+  - component: {fileID: 7358742957796639835}
   m_Layer: 8
   m_Name: Blue Slime Enemy
   m_TagString: Enemy
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3238837679985581699}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 86.972, y: 8.295, z: -3.8403687}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: f6dbc39af1959984a8805b27193a733e, type: 3}
+  m_Sprite: {fileID: 4723107735738678597, guid: 2f271f00ba230494db62f34749aa4ae8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,28 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5983272521838682484
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3238837679985581699}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e31962e65e5063343a4070d8c01f19ac, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &6849498491581785400
 Rigidbody2D:
   serializedVersion: 4
@@ -137,35 +115,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1514953313534932630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3238837679985581699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81cbce2ccb4918f40a849766d4f8f038, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemySpeed: 3.75
-  enemyPatrolSpeed: 3
-  jumpForce: 2
-  jumpDetectRange: 1.6
-  followRadius: 8
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 64
-  player: {fileID: 0}
-  maxHealth: 10
-  currentHealth: 0
-  attackRadius: 2
-  meleeCooldownLength: 2
-  bloodSplatter: {fileID: 7533315650969846463, guid: 5216280303a011845b848a29fc6f5b23, type: 3}
 --- !u!68 &3844791979389986265
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -215,3 +164,55 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!95 &1535367897404203548
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238837679985581699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 97a2fe1d1ba0b4b46a67cce7e95f8c18, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7358742957796639835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238837679985581699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435035024640c794b91237a1864de525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpeed: 3.75
+  enemyPatrolSpeed: 3
+  jumpForce: 35
+  jumpXForce: 15
+  jumpResetTime: 1
+  followRadius: 10
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 64
+  player: {fileID: 0}
+  maxHealth: 20
+  currentHealth: 0
+  attackRadius: 2
+  pauseTime: 0.25
+  explosionParticle: {fileID: 2617226224382581783, guid: 223db02f9b6e64848b10a6373c209927, type: 3}

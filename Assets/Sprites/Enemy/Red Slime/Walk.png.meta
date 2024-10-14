@@ -58,12 +58,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -93,10 +93,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,6 +115,54 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -122,12 +170,12 @@ TextureImporter:
       name: Walk_0
       rect:
         serializedVersion: 2
-        x: 35
+        x: 36
         y: 0
-        width: 49
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 47
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -143,12 +191,12 @@ TextureImporter:
       name: Walk_1
       rect:
         serializedVersion: 2
-        x: 162
+        x: 163
         y: 0
-        width: 52
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 50
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,12 +212,12 @@ TextureImporter:
       name: Walk_2
       rect:
         serializedVersion: 2
-        x: 289
+        x: 290
         y: 0
-        width: 56
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 54
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,12 +233,12 @@ TextureImporter:
       name: Walk_3
       rect:
         serializedVersion: 2
-        x: 418
+        x: 419
         y: 0
-        width: 56
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 54
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,12 +254,12 @@ TextureImporter:
       name: Walk_4
       rect:
         serializedVersion: 2
-        x: 547
+        x: 548
         y: 0
-        width: 55
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 53
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -227,12 +275,12 @@ TextureImporter:
       name: Walk_5
       rect:
         serializedVersion: 2
-        x: 678
+        x: 679
         y: 0
-        width: 54
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 52
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,12 +296,12 @@ TextureImporter:
       name: Walk_6
       rect:
         serializedVersion: 2
-        x: 805
+        x: 806
         y: 0
-        width: 52
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 50
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -269,12 +317,12 @@ TextureImporter:
       name: Walk_7
       rect:
         serializedVersion: 2
-        x: 933
+        x: 934
         y: 0
-        width: 49
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 47
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,14 +337,22 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 093198d4c1bdc9e47a4390831e4e38ae
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Walk_0: 4035959289877228764
+      Walk_1: -982904232830982447
+      Walk_2: -350908408369970039
+      Walk_3: -5409570386352685021
+      Walk_4: 1553940418269799609
+      Walk_5: 2416434504916517810
+      Walk_6: -6428935122508569504
+      Walk_7: 7144598999076838305
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
