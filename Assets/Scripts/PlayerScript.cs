@@ -197,18 +197,20 @@ public class PlayerScript : MonoBehaviour
     #region combat
     void Attack()
     {
+        //things that prohibt you from attacking
         if (dying || !grounded || Mathf.Abs(rb.velocity.magnitude) > attackVelLimit)
         {
             return;
         }
 
-        //only allows an attack if you are on the ground and stationary
+        //melee attack
         if ( Input.GetKeyDown("e"))
         {
             anim.SetBool("IsAttacking", true);
             attacking = true;            
         }  
 
+        //ranged attack
         if (Input.GetKeyDown("q") && canThrow)
         {
             Instantiate(knifePrefab, shootPoint.position, Quaternion.Euler(moveDir));
@@ -221,32 +223,29 @@ public class PlayerScript : MonoBehaviour
 
     void AttackExecute()
     {
-        Debug.Log("attack");
+        //Debug.Log("attack");
         //detects if an enemy is inside the attack range
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, attackRange, enemyLayers);
 
-        foreach(Collider2D hit in hitEnemies)
+        if (hit == null)
         {
-            //deals damage and adds score
-            if (hit.transform.CompareTag("Crate"))
+            return;
+        }
+        
+        //deals damage and adds score
+        if (hit.transform.CompareTag("Crate"))
+        {
+            hit.GetComponent<BoxScript>().TakeDamage(attackDamage); 
+            Debug.Log(hit.transform.name);
+            gameManager.GainScore(crateScore);
+        }
+        else if (hit.transform.CompareTag("Enemy"))
             {
-                hit.GetComponent<BoxScript>().TakeDamage(attackDamage); 
-                Debug.Log(hit.transform.name);
-                gameManager.GainScore(crateScore);
-            }
-            else if (hit.transform.CompareTag("Enemy"))
-            {
-                hit.GetComponent<Enemy>().TakeDamage(attackDamage);
-                Debug.Log(hit.transform.name);
-                gameManager.GainScore(enemyScore);
-            }
-            else if (hit.transform.CompareTag("Boss"))
-            {
-                hit.GetComponent<BossScript>().TakeDamage(attackDamage);
-                Debug.Log(hit.transform.name);
-               
-            }
-        }        
+            hit.GetComponent<Enemy>().TakeDamage(attackDamage);
+            Debug.Log(hit.transform.name);
+            gameManager.GainScore(enemyScore);
+        }
+                      
     }
 
     public void AttackEnd()
@@ -257,12 +256,10 @@ public class PlayerScript : MonoBehaviour
 
     private void OnDrawGizmosSelected() //draws sphere visuals
     {
-        if (attackPoint == null)
+        if (attackPoint != null)
         {
-            return; 
-        }
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);        
+            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        }       
     }
 
     void CanThrow()
@@ -297,7 +294,4 @@ public class PlayerScript : MonoBehaviour
         
     }
     #endregion
-
-    
-
 }

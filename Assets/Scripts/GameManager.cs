@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 
 public class GameManager : MonoBehaviour
@@ -19,11 +20,13 @@ public class GameManager : MonoBehaviour
 
     //deathscreen
     public TextMeshProUGUI finalScoreText;
+    bool lost = false;
 
     //winscreen
     public GameObject winScreen;
     public TextMeshProUGUI finalTimeText;
     public TextMeshProUGUI winScoreText;
+    bool won = false;
 
     public GameObject hud;
 
@@ -60,15 +63,18 @@ public class GameManager : MonoBehaviour
 
     public void DisplayDeathScreen()
     {
-        hud.SetActive(false);
-
-
-        //if you die, your score is displayed
-        if (finalScoreText != null)
+        if (!won)
         {
-            finalScoreText.text = "Your final score was " + score;
-        }
+            lost = true;
+            hud.SetActive(false);
 
+
+            //if you die, your score is displayed
+            if (finalScoreText != null)
+            {
+                finalScoreText.text = "Your final score was " + score;
+            }
+        }
     }  
 
     #endregion
@@ -77,12 +83,17 @@ public class GameManager : MonoBehaviour
 
     public void DisplayWinScreen()
     {
-        //turns winscreen on and turn the text at the top off
-        winScreen.SetActive(true);
-        finalTimeText.text = "Time: " + time.ToString("0");
-        winScoreText.text = "Score: " + score;
+        if (!lost)
+        {
+            won = true;
+            //turns winscreen on and turn the text at the top off
+            winScreen.SetActive(true);
+            finalTimeText.text = "Time: " + time.ToString("0");
+            winScoreText.text = "Score: " + score;
 
-        hud.SetActive(false);
+            hud.SetActive(false);
+        }
+        
     }
 
     #endregion

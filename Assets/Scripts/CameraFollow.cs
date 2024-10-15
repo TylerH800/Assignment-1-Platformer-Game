@@ -21,8 +21,7 @@ public class CameraFollow : MonoBehaviour
     {
         //camera follows player position
         if (target != null)
-        {
-            //makes the camera follow smoothly
+        {            
             transform.position = target.position + offset;
         }
     }

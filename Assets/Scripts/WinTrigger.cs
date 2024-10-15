@@ -23,6 +23,7 @@ public class WinTrigger : MonoBehaviour
 
     void DetectForPlayer()
     {
+        //if the player is close enough, start the chest opening animation
         if (Physics2D.OverlapCircle(transform.position, detectRadius, whatIsPlayer))
         {
             animator.SetBool("chestOpen", true);
@@ -31,6 +32,7 @@ public class WinTrigger : MonoBehaviour
 
     public void Win()
     {
+        //called as en event at the end of the chest animation
         gameManager.DisplayWinScreen();
     }
 

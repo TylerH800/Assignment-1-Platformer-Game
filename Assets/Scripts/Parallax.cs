@@ -28,10 +28,13 @@ public class Parallax : MonoBehaviour
         distance = (cam.transform.position.x * parallaxEffect);
         transform.position = new Vector2(startpos + distance, transform.position.y);
 
+
+        //if you go too far from the background on either side it moves
         if (temp > startpos + length)
         {
             startpos += length;
         }
+
         else if (temp < startpos - length)
         { 
             startpos -= length; 
