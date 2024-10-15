@@ -25,7 +25,7 @@ public class BomberEnemy : MonoBehaviour
     public float followRadius;
 
     public LayerMask whatIsGround, whatIsPlayer;
-    public GameObject player;
+    private GameObject player;
 
     [Header("Combat")]
     //health
@@ -52,6 +52,8 @@ public class BomberEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         helper = gameObject.AddComponent<HelperScript>();
+        player = GameObject.Find("Player");
+
 
         currentHealth = maxHealth;
     }
@@ -63,6 +65,7 @@ public class BomberEnemy : MonoBehaviour
         }
         GroundCheck();
         StateFinder();
+        LookAtPlayer();
     }
 
     private void LateUpdate()
