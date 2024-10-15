@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7660314052363671336}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 145.04633, y: 12.835619, z: -3.8403687}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -155,8 +155,8 @@ EdgeCollider2D:
   - {x: 0.00061666965, y: 0.31323624}
   - {x: -0.13222033, y: 0.27658853}
   - {x: -0.22273088, y: 0.18280105}
-  - {x: -0.23936754, y: 0.00042912026}
-  - {x: 0.23423931, y: 0.0021305168}
+  - {x: -0.23747498, y: 0.0098914765}
+  - {x: 0.2701972, y: 0.011592873}
   - {x: 0.23338023, y: 0.18867703}
   - {x: 0.14595807, y: 0.27973184}
   - {x: 0.010909051, y: 0.31653175}
@@ -209,7 +209,6 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
-  player: {fileID: 1625014571555947350, guid: 245ef1be086500d42abc730d93bd4fcb, type: 3}
   maxHealth: 20
   currentHealth: 0
   attackRadius: 2.5

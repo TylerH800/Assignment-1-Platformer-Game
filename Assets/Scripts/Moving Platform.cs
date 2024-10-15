@@ -24,12 +24,12 @@ public class MovingPlatform : MonoBehaviour
 
     void Update()
     {
+        //the direction is calculated every frame
         direction = new Vector2(xDir, yDir);
-
     }
     
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         Movement();
     }
@@ -48,6 +48,7 @@ public class MovingPlatform : MonoBehaviour
 
     IEnumerator State()
     {
+        //makes the platform move for a set time
         yield return new WaitForSeconds(moveTime);
 
         rb.velocity = Vector2.zero;
@@ -57,6 +58,7 @@ public class MovingPlatform : MonoBehaviour
 
     IEnumerator FlipDir()
     {
+        //flips the platform and makes it stay put for a set time before moving it again
         print("flipping");
         xDir *= -1;
         yDir *= -1;
@@ -66,5 +68,8 @@ public class MovingPlatform : MonoBehaviour
 
         StartCoroutine(State());
     }
+
+
+    
 
 }
