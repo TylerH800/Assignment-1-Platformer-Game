@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7901931889782035416}
   - component: {fileID: 6038765371724938855}
   m_Layer: 6
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 765491813202722445}
+  - {fileID: 3231706049447116626}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4644063283857902104
@@ -75,9 +76,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1974909079
-  m_SortingLayer: -1
-  m_SortingOrder: 1
+  m_SortingLayerID: 1309358101
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: cb40cad9692221844a402f36e803f8c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -129,13 +130,17 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  moveDir: {x: 0, y: 0}
   attackDamage: 20
   attackRange: 0.8
   attackVelLimit: 1.5
+  throwCooldown: 0.5
   attackPoint: {fileID: 765491813202722445}
+  shootPoint: {fileID: 3231706049447116626}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 384
+  knifePrefab: {fileID: 4041558448198815404, guid: 6f073ce8eab92364c9439e3d5ff76355, type: 3}
   coinScore: 10
   enemyScore: 50
   crateScore: 5
@@ -156,7 +161,7 @@ Rigidbody2D:
   m_LinearDrag: 3
   m_AngularDrag: 0.05
   m_GravityScale: 5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 3ee91639e82724d42853eb9a839e6e4e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -204,6 +209,37 @@ CapsuleCollider2D:
   m_Offset: {x: 0.000870347, y: 0.12994191}
   m_Size: {x: 0.23954193, y: 0.25990433}
   m_Direction: 0
+--- !u!1 &7583503194760024618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3231706049447116626}
+  m_Layer: 6
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3231706049447116626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7583503194760024618}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.03758812, y: 0.12999472, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3815125918594116391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8682720630912233581
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,8 +265,8 @@ Transform:
   m_GameObject: {fileID: 8682720630912233581}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.182, y: 0.129, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.195, y: 0.142, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3815125918594116391}

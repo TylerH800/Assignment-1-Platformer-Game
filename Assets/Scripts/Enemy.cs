@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     private float rayYOffset = 0.8f;
     private float groundCheckRange = 1f;
     
-    bool grounded, chasing, patrolling;
+    bool grounded, chasing, patrolling, pause;
 
     private Vector2 playerPos, moveDir;
 
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     public float followRadius;
 
     public LayerMask whatIsGround, whatIsPlayer;
-    public GameObject player;
+    private GameObject player;
 
     [Header("Combat")]
     //health
@@ -55,18 +55,21 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         helper = gameObject.AddComponent<HelperScript>();
+        player = GameObject.Find("Player");
 
         currentHealth = maxHealth;
     }
     void Update()
     {
-        if (player != null)
-        {
+       
+        
             GetPlayerPos();            
-        }             
-        GroundCheck();
+        
+
+        GroundCheck();                   
         StateFinder();
-    }
+        
+;    }
 
     private void LateUpdate()
     {
@@ -100,21 +103,35 @@ public class Enemy : MonoBehaviour
     void GetPlayerPos()
     {
         //constantly finds the players position
-        playerPos = player.transform.position;
+        if (player != null)
+        {
+            //enemy bug with not finding player pos was fixed here incase it happens here
+            playerPos = player.transform.position;
+            //print(player.transform.position.x);
+            //print(playerPos.x);
+        }
+        
+       
     }
 
     void LookAtPlayer() //face the player
     {
+        if (attacking)
+        {
+            return;
+        }
         //flips the enemy sprite x depending on which side of the enemy the player is
         if (playerPos.x > transform.position.x)
         {
             helper.FlipObject(false);
             moveDir = Vector2.right;
+            //print("right");
         }
-        else
+        else if (playerPos.x <= transform.position.x)
         {
             moveDir = Vector2.left;
             helper.FlipObject(true);
+            //print("left");
         }
     }
 
@@ -140,32 +157,33 @@ public class Enemy : MonoBehaviour
 
     void StateFinder()
     {     
-        if (dying)
+        if (dying || attacking)
         {
             return;
         }
+        LookAtPlayer();
 
         //attacking
         if (Physics2D.OverlapCircle(transform.position + new Vector3(0, sphereYOffest, 0), attackRadius, whatIsPlayer) && !meleeCooldown && !attacking)
         {
-            LookAtPlayer();
+            
             StartAttack();
             print(attacking);
         }
         //chasing
-        else if (Physics2D.OverlapCircle(transform.position + new Vector3(0, sphereYOffest, 0), followRadius, whatIsPlayer) && !attacking)
+        else if (Physics2D.OverlapCircle(transform.position + new Vector3(0, sphereYOffest, 0), followRadius, whatIsPlayer) && !attacking && !meleeCooldown)
         {
             // if the player is close enough, the enemy will chase them
             patrolling = false;
             chasing = true;
 
-            LookAtPlayer();
+            
             ChasePlayer();
             Jumping();
             //print("chase");
         }
         //patrolling
-        else if (!attacking && grounded)
+        else if (!attacking && !meleeCooldown && grounded)
         {
             Patrolling();
             ExtendedRayCollisionCheck();
@@ -226,11 +244,11 @@ public class Enemy : MonoBehaviour
         //changes direction based on the players position relative to the enemy
         if (playerPos.x > transform.position.x)
         {           
-            rb.velocity = new Vector3(enemySpeed, rb.velocity.y);
+            rb.velocity = new Vector3(moveDir.x * enemySpeed, rb.velocity.y);
         }
         else if (playerPos.x < transform.position.x)
         {         
-            rb.velocity = new Vector3(-enemySpeed, rb.velocity.y);                        
+            rb.velocity = new Vector3(moveDir.x * enemySpeed, rb.velocity.y);                        
         }
     }
 
@@ -324,6 +342,7 @@ public class Enemy : MonoBehaviour
         print("resetting");
         anim.SetBool("enemyAttack", false);
         attacking = false;
+        pause = true;
         meleeCooldown = true;
         Invoke("EndMeleeCooldown", meleeCooldownLength);
     }
