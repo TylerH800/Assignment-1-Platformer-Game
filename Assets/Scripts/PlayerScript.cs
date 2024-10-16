@@ -204,14 +204,14 @@ public class PlayerScript : MonoBehaviour
         }
 
         //melee attack
-        if ( Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("q") || Input.GetKeyDown(KeyCode.Mouse0))
         {
             anim.SetBool("IsAttacking", true);
             attacking = true;            
         }  
 
         //ranged attack
-        if (Input.GetKeyDown("q") && canThrow)
+        if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.Mouse1) && canThrow)
         {
             Instantiate(knifePrefab, shootPoint.position, Quaternion.Euler(moveDir));
             //stops you from throwing again for a set time
