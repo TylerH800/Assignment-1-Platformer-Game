@@ -34,8 +34,11 @@ public class Enemy : MonoBehaviour
     public int currentHealth;
 
     //attacking
+    public int damage = 50;
     public float attackRadius;
     public float meleeCooldownLength = 2f;
+
+    public int scoreValue = 50;
 
     bool attacking = false;
     bool meleeCooldown;
@@ -47,6 +50,7 @@ public class Enemy : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     HelperScript helper;
+    GameManager gameManager;
 
     #endregion
 
@@ -55,6 +59,9 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         helper = gameObject.AddComponent<HelperScript>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+
         player = GameObject.Find("Player");
 
         currentHealth = maxHealth;
@@ -300,6 +307,8 @@ public class Enemy : MonoBehaviour
     {
         anim.SetBool("enemyDie", true);
         dying = true;
+        gameManager.GainScore(scoreValue);
+       
     }
 
     public void Despawn()
@@ -331,7 +340,7 @@ public class Enemy : MonoBehaviour
         Collider2D hit = Physics2D.OverlapCircle(transform.position + new Vector3(0, sphereYOffest, 0), attackRadius, whatIsPlayer);
         if (hit != null)
         {            
-            hit.GetComponent<PlayerScript>().StartDeath();
+            hit.GetComponent<PlayerScript>().TakeDamage(damage);
         }
     }
 

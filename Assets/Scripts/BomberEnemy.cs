@@ -12,7 +12,6 @@ public class BomberEnemy : MonoBehaviour
     public float enemySpeed;
     public float enemyPatrolSpeed;
 
-
     public float jumpForce, jumpXForce, jumpResetTime;
     private float groundCheckRange = 1f;
 
@@ -29,12 +28,15 @@ public class BomberEnemy : MonoBehaviour
 
     [Header("Combat")]
     //health
+    public int damage = 100;
     public int maxHealth = 20;
     public int currentHealth;
 
     //attacking
     public float attackRadius, pauseTime;
     public ParticleSystem explosionParticle;
+
+    public int scoreValue = 125;
 
     //dying
     bool dying = false;
@@ -44,6 +46,7 @@ public class BomberEnemy : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     HelperScript helper;
+    GameManager gameManager;
 
     #endregion
 
@@ -52,6 +55,8 @@ public class BomberEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         helper = gameObject.AddComponent<HelperScript>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         player = GameObject.Find("Player");
 
 
@@ -294,6 +299,7 @@ public class BomberEnemy : MonoBehaviour
     {
         anim.SetBool("redDie", true);
         dying = true;
+        gameManager.GainScore(scoreValue);
     }
 
     public void Despawn()
@@ -313,10 +319,10 @@ public class BomberEnemy : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         Instantiate(explosionParticle, transform.position, Quaternion.identity);
-        Collider2D hit = (Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer));
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
         if (hit != null && hit.transform.CompareTag("Player"))
         {
-            hit.GetComponent<PlayerScript>().StartDeath();
+            hit.GetComponent<PlayerScript>().TakeDamage(damage);
         }
         Destroy(gameObject);
     }

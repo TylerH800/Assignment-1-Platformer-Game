@@ -14,7 +14,6 @@ public class PlayerScript : MonoBehaviour
     public float moveSpeed = 7;
     public float waterSpeedMultiplier = 0.5f;
     public float jumpForce;
-    private bool jumping = false;
     private bool grounded = true;
     private float groundCheckRange = 0.5f;
 
@@ -36,10 +35,13 @@ public class PlayerScript : MonoBehaviour
     public LayerMask enemyLayers;
     public GameObject knifePrefab;
 
+    [Header("Health")]
+    public int maxHealth;
+    public int currentHealth;
+
     //scoring
     [Header("Scoring")]
     public int coinScore = 10;
-    public int enemyScore = 50;
     public int crateScore = 5;
 
     [Header("Death")]
@@ -60,6 +62,8 @@ public class PlayerScript : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         helper = gameObject.AddComponent<HelperScript>();
 
+        currentHealth = maxHealth;
+
     }
     #endregion
     
@@ -68,7 +72,7 @@ public class PlayerScript : MonoBehaviour
         MoveSprite();
         Jump();
         Attack();
-        CheckForDeath();
+        CheckForEsc();
         GroundCheck();
 
         //if (Input.GetKeyDown(KeyCode.H))
@@ -134,7 +138,6 @@ public class PlayerScript : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             grounded = false;
             
-            jumping = true;
         }
 
         
@@ -164,7 +167,6 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("IsFalling", false);
 
             grounded = true;
-            jumping = false;
         }
         else
         {
@@ -178,12 +180,6 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if you enter water, move speed is halved
-        if (collision.gameObject.CompareTag("Water"))
-        {
-            moveSpeed *= waterSpeedMultiplier;
-        }
-
         //if you pick up a coin, you gain score and the coin is destroyed
         if (collision.gameObject.CompareTag("Coin"))
         {
@@ -191,21 +187,12 @@ public class PlayerScript : MonoBehaviour
             gameManager.GainScore(coinScore);
         }
 
+        //kills you if you fall too far
         if (collision.gameObject.CompareTag("BoundsCollider"))
         {
             Die();
         }
 
-    }
-
-    
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //reverts move speed to normal once you leave water
-        if (collision.gameObject.CompareTag("Water"))
-        {
-            moveSpeed /= waterSpeedMultiplier;
-        }
     }
 
     #endregion
@@ -252,14 +239,13 @@ public class PlayerScript : MonoBehaviour
         if (hit.transform.CompareTag("Crate"))
         {
             hit.GetComponent<BoxScript>().TakeDamage(attackDamage); 
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
             gameManager.GainScore(crateScore);
         }
         else if (hit.transform.CompareTag("Enemy"))
-            {
+        {
             hit.GetComponent<Enemy>().TakeDamage(attackDamage);
-            Debug.Log(hit.transform.name);
-            gameManager.GainScore(enemyScore);
+            //Debug.Log(hit.transform.name);            
         }
                       
     }
@@ -280,27 +266,44 @@ public class PlayerScript : MonoBehaviour
 
     void CanThrow()
     {
+        //lets you throw a knife again
         canThrow = true;
     }
         
     #endregion
 
-    #region death
-    void CheckForDeath()
+    #region death and damage
+    void CheckForEsc()
     {
-        //maybe temp
+        //if you press escape the game ends
         if (Input.GetKey(KeyCode.Escape))
         {
             Die();
         }
     }
 
-    public void StartDeath()
+    public void TakeDamage(int damage)
     {
-        anim.SetBool("IsDying", true);
-        dying = true;
+        //takes damage based on a value passed in
+        currentHealth -= damage;
+        //Debug.Log(currentHealth);
 
+        if (currentHealth <= 0)
+        {            
+            anim.SetBool("IsDying", true);
+            dying = true;
+        }
+        else
+        {
+            anim.SetBool("IsHurt", true);
+        }
     }
+
+    void EndHurtAnim()
+    {
+        anim.SetBool("IsHurt", false);
+    }
+ 
     public void Die()
     {
         
