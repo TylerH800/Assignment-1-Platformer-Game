@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerScript : MonoBehaviour
     private bool jumping = false;
     private bool grounded = true;
     private float groundCheckRange = 0.5f;
+
+    private Vector2 moveInputValue;
 
     public LayerMask whatIsGround;
     public Vector2 moveDir;
@@ -47,8 +50,7 @@ public class PlayerScript : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
     GameManager gameManager;
-    HelperScript helper;
-    
+    HelperScript helper;   
 
     private void Start()
     {
@@ -76,15 +78,26 @@ public class PlayerScript : MonoBehaviour
     }
 
     #region basic movement
+
+    void OnMove(InputValue value)
+    {
+        //gets input from the input manager
+        moveInputValue = value.Get<Vector2>();
+        //Debug.Log(moveInputValue);
+    }
+
     void MoveSprite()
     {
-        if (attacking || dying) //stops all movement if attacking
+        if (attacking || dying || gameManager.won) //stops all movement if attacking
         {
             return;
         }
 
+        float xInput = moveInputValue.x * moveSpeed * Time.deltaTime;
+        //Debug.Log(xInput);
+        
         //move the player left and right using the 'a' and 'd' keys, animates and flips the character
-        if (Input.GetKey("a") == true)
+        if (xInput < 0 || Input.GetKey("a"))
         {
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
             anim.SetFloat("Speed", 1);           
@@ -93,7 +106,7 @@ public class PlayerScript : MonoBehaviour
         }
         
 
-        else if (Input.GetKey("d") == true)
+        else if (xInput > 0 || Input.GetKey("d"))
         {
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
             anim.SetFloat("Speed", 1);      
@@ -104,12 +117,18 @@ public class PlayerScript : MonoBehaviour
         {
             anim.SetFloat("Speed", 0);
         }
+        
     }
     
     void Jump()
     {
-        //checks for the player being on the ground and gets spacebar input
-        if (Input.GetKeyDown("space") && grounded && !attacking && !dying)
+
+        if (dying || !grounded || attacking || gameManager.won)
+        {
+            return; //jump can only run if certain conditions are met
+        }
+        
+        if (Input.GetButtonDown("Jump"))
         {
             //makes the player jump, stops them from jumping in the air and animates the jump
             rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
@@ -118,10 +137,7 @@ public class PlayerScript : MonoBehaviour
             jumping = true;
         }
 
-        if (dying)
-        {
-            return;
-        }
+        
         //change the enemy animation depending on whether enemy is moving up or down
         if (rb.velocity.y >= 0.1f)
         {
@@ -198,20 +214,20 @@ public class PlayerScript : MonoBehaviour
     void Attack()
     {
         //things that prohibt you from attacking
-        if (dying || !grounded || Mathf.Abs(rb.velocity.magnitude) > attackVelLimit)
+        if (gameManager.won || dying || !grounded || Mathf.Abs(rb.velocity.magnitude) > attackVelLimit)
         {
             return;
         }
 
         //melee attack
-        if (Input.GetKeyDown("q") || Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetButtonDown("Fire1"))
         {
             anim.SetBool("IsAttacking", true);
             attacking = true;            
         }  
 
         //ranged attack
-        if (Input.GetKeyDown("e") || Input.GetKeyDown(KeyCode.Mouse1) && canThrow)
+        if (Input.GetButtonDown("Fire2") && canThrow)
         {
             Instantiate(knifePrefab, shootPoint.position, Quaternion.Euler(moveDir));
             //stops you from throwing again for a set time

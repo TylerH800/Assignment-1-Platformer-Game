@@ -20,13 +20,13 @@ public class GameManager : MonoBehaviour
 
     //deathscreen
     public TextMeshProUGUI finalScoreText;
-    bool lost = false;
+    public bool lost = false;
 
     //winscreen
     public GameObject winScreen;
     public TextMeshProUGUI finalTimeText;
     public TextMeshProUGUI winScoreText;
-    bool won = false;
+    public bool won = false;
 
     public GameObject hud;
 

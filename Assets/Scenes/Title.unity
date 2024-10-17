@@ -1109,7 +1109,7 @@ GameObject:
   - component: {fileID: 1988122316}
   - component: {fileID: 1988122315}
   m_Layer: 5
-  m_Name: Ctrols text
+  m_Name: Controls text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1131,7 +1131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6.4401245, y: -338.357}
+  m_AnchoredPosition: {x: 6.4401245, y: -356}
   m_SizeDelta: {x: -1281.4125, y: -991.4525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1988122315
@@ -1154,8 +1154,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Controls: A and D to move left and right; spacebar to jump. Q and E (or
-    LMB and RMB) do melee and ranhed attacks respectively.'
+  m_text: 'Keyboard controls: A and D to move left and right; spacebar to jump. Q
+    and E do melee and ranged attacks respectively.
+
+    f
+
+    Controller controls:
+    Left Joystick movs you left and right; A to Jump. L1 and R1 do melee and ranged
+    attacks respectively.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -1182,8 +1188,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
