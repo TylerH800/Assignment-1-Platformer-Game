@@ -48,6 +48,13 @@ public class PlayerScript : MonoBehaviour
     public GameObject deathScreen;
     bool dying = false;
 
+    [Header("Audio")]
+    public AudioSource source;
+    public AudioClip knife;
+    public AudioClip knifeThrow;
+    public AudioClip jump;
+
+
     //components
     Rigidbody2D rb;
     Animator anim;
@@ -137,6 +144,10 @@ public class PlayerScript : MonoBehaviour
             //makes the player jump, stops them from jumping in the air and animates the jump
             rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             grounded = false;
+
+            //plays the jump sound
+            source.clip = jump;
+            source.Play();
             
         }
 
@@ -210,7 +221,11 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             anim.SetBool("IsAttacking", true);
-            attacking = true;            
+            attacking = true;       
+            
+            //plays the knife attack sound
+            source.clip = knife;
+            source.Play();
         }  
 
         //ranged attack
@@ -220,6 +235,10 @@ public class PlayerScript : MonoBehaviour
             //stops you from throwing again for a set time
             canThrow = false;
             Invoke("CanThrow", throwCooldown);
+
+            //plays the knife throw sound
+            source.clip = knifeThrow;
+            source.Play();
         }
  
     }
@@ -234,7 +253,7 @@ public class PlayerScript : MonoBehaviour
         {
             return;
         }
-        
+       
         //deals damage and adds score
         if (hit.transform.CompareTag("Crate"))
         {
@@ -306,7 +325,7 @@ public class PlayerScript : MonoBehaviour
  
     public void Die()
     {
-        
+        //death sound is played in game manager because this game object is destroyed
         Destroy(gameObject);
         deathScreen.SetActive(true); //ends the game
         gameManager.DisplayDeathScreen();

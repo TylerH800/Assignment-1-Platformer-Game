@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject hud;
 
+    public AudioSource source;
+    public AudioClip death;
+
     void Update()
     {
         DisplayTime();
@@ -63,6 +66,10 @@ public class GameManager : MonoBehaviour
 
     public void DisplayDeathScreen()
     {
+        //plays the death sound, called here as the player gameobject is destroyed
+        source.clip = death;
+        source.Play();
+
         if (!won)
         {
             lost = true;
