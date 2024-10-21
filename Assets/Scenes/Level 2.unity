@@ -19297,6 +19297,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1953518365}
     m_Modifications:
+    - target: {fileID: 406953242245122288, guid: ae03f99c046b39044a750b9c53154b7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2117837719}
+    - target: {fileID: 406953242245122288, guid: ae03f99c046b39044a750b9c53154b7f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
     - target: {fileID: 1482515798739666291, guid: ae03f99c046b39044a750b9c53154b7f, type: 3}
       propertyPath: m_Name
       value: Quit Button

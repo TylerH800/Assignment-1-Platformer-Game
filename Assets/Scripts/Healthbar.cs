@@ -25,12 +25,15 @@ public class Healthbar : MonoBehaviour
         //actual bar has a percentage green depending on health
         slider.value = player.currentHealth;
 
-        //changes the word display
-        healthText.text = "Health: " + player.currentHealth + " / " + player.maxHealth;
-
+        //stops health going below zero
         if (player.currentHealth <= 0)
         {
             healthText.color = Color.red;
+            player.currentHealth = 0;
         }
+        //changes the word display
+        healthText.text = "Health: " + player.currentHealth + " / " + player.maxHealth;
+
+       
     }
 }
