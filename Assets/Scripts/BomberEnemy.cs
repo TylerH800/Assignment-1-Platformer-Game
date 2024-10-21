@@ -313,11 +313,13 @@ public class BomberEnemy : MonoBehaviour
 
     IEnumerator BeginAttack(float time)
     {
+        //prevents any more movement and waits a small moment
         attacking = true;
         rb.velocity = Vector2.zero;
         rb.gravityScale = 0;
         yield return new WaitForSeconds(time);
 
+        //spawns the particles and detects for the player in range, before destroying
         Instantiate(explosionParticle, transform.position, Quaternion.identity);
         Collider2D hit = Physics2D.OverlapCircle(transform.position, attackRadius, whatIsPlayer);
         if (hit != null && hit.transform.CompareTag("Player"))

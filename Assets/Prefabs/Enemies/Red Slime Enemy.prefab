@@ -203,15 +203,17 @@ MonoBehaviour:
   jumpForce: 35
   jumpXForce: 15
   jumpResetTime: 1
-  followRadius: 10
+  followRadius: 12
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
-  maxHealth: 20
+  damage: 100
+  maxHealth: 10
   currentHealth: 0
   attackRadius: 2
   pauseTime: 0.25
   explosionParticle: {fileID: 2617226224382581783, guid: 223db02f9b6e64848b10a6373c209927, type: 3}
+  scoreValue: 125

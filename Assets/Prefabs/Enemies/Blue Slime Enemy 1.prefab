@@ -209,7 +209,9 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
-  maxHealth: 20
+  maxHealth: 40
   currentHealth: 0
+  damage: 50
   attackRadius: 2.5
   meleeCooldownLength: 2
+  scoreValue: 50

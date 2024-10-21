@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    //takes in a different level based on te buton clicked
     public void PlayLevel(int level)
     {
         SceneManager.LoadScene(level);
@@ -19,6 +20,12 @@ public class LevelManager : MonoBehaviour
     public void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void Quit()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
     }
 
 

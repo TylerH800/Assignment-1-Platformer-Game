@@ -7,12 +7,10 @@ public class MovingPlatform : MonoBehaviour
 {
     //variables and references
     public float xDir, yDir, speed, moveTime, waitTime;
-    private bool forward = true;
     private bool moving = true;
 
     private Vector2 direction;
     Rigidbody2D rb;
-
 
     // Start is called before the first frame update
     void Start()
