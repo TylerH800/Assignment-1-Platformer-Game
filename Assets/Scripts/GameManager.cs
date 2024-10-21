@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour
     public AudioSource source;
     public AudioClip death;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     void Update()
     {
         DisplayTime();

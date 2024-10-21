@@ -71,6 +71,10 @@ public class PlayerScript : MonoBehaviour
 
         currentHealth = maxHealth;
 
+        //locks the mouse from moving and makes it invisible
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
     #endregion
     
@@ -325,6 +329,10 @@ public class PlayerScript : MonoBehaviour
  
     public void Die()
     {
+        //makes the cursor visible and moveable
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         //death sound is played in game manager because this game object is destroyed
         Destroy(gameObject);
         deathScreen.SetActive(true); //ends the game

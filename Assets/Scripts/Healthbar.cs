@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Healthbar : MonoBehaviour
 {
     public Slider slider;
     private PlayerScript player;
+    public TextMeshProUGUI healthText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,15 @@ public class Healthbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //actual bar has a percentage green depending on health
         slider.value = player.currentHealth;
+
+        //changes the word display
+        healthText.text = "Health: " + player.currentHealth + " / " + player.maxHealth;
+
+        if (player.currentHealth <= 0)
+        {
+            healthText.color = Color.red;
+        }
     }
 }

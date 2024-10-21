@@ -32,6 +32,10 @@ public class WinTrigger : MonoBehaviour
 
     public void Win()
     {
+        //makes the cursor visible and moveable
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         //called as en event at the end of the chest animation
         gameManager.DisplayWinScreen();
     }

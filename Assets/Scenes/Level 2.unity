@@ -1405,6 +1405,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1288272762443703626, guid: acfd9ea7c440d76428493c839cf22195, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
     - target: {fileID: 1789282548316149061, guid: acfd9ea7c440d76428493c839cf22195, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1417,6 +1421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2955928892005950452, guid: acfd9ea7c440d76428493c839cf22195, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
     - target: {fileID: 4188924523394708753, guid: acfd9ea7c440d76428493c839cf22195, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2731,7 +2739,7 @@ PrefabInstance:
     - target: {fileID: 5635002285040928621, guid: 245ef1be086500d42abc730d93bd4fcb, type: 3}
       propertyPath: source
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 207529628}
     - target: {fileID: 5635002285040928621, guid: 245ef1be086500d42abc730d93bd4fcb, type: 3}
       propertyPath: deathScreen
       value: 
@@ -2742,6 +2750,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 245ef1be086500d42abc730d93bd4fcb, type: 3}
+--- !u!82 &207529628 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 895065377174164577, guid: 245ef1be086500d42abc730d93bd4fcb, type: 3}
+  m_PrefabInstance: {fileID: 207529627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &220832539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12454,7 +12467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 571811609685000321, guid: f8160874a9ac2a64e94afd6e52fa9edd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -181
+      value: -173
       objectReference: {fileID: 0}
     - target: {fileID: 571811609685000321, guid: f8160874a9ac2a64e94afd6e52fa9edd, type: 3}
       propertyPath: m_AnchoredPosition.y
