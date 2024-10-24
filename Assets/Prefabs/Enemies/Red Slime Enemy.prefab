@@ -202,8 +202,8 @@ MonoBehaviour:
   enemyPatrolSpeed: 3
   jumpForce: 35
   jumpXForce: 15
-  jumpResetTime: 1
-  followRadius: 12
+  jumpResetTime: 0.5
+  followRadius: 8
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8

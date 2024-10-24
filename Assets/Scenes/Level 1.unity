@@ -1495,7 +1495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4067618953302877586, guid: 8585f3a6c0b342641a8288777a1c7f96, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.4
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 4067618953302877586, guid: 8585f3a6c0b342641a8288777a1c7f96, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3312,7 +3312,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4766105039419570025, guid: f18742e4a1b143548837c8db55577127, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.8
+      value: 41.520004
       objectReference: {fileID: 0}
     - target: {fileID: 4766105039419570025, guid: f18742e4a1b143548837c8db55577127, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14407,6 +14407,10 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 392904526}
+    - target: {fileID: 5635002285040928621, guid: 245ef1be086500d42abc730d93bd4fcb, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 136
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7780199326895492702, guid: 245ef1be086500d42abc730d93bd4fcb, type: 3}
     m_RemovedGameObjects: []

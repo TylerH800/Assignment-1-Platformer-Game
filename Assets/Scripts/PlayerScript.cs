@@ -131,6 +131,7 @@ public class PlayerScript : MonoBehaviour
         else
         {
             anim.SetFloat("Speed", 0);
+            rb.velocity = new Vector2(rb.velocity.x * 0.7f, rb.velocity.y);
         }
         
     }
