@@ -5,6 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+
+    private void Update()
+    {
+        //incase buttons dont work
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SceneManager.LoadScene(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
     //takes in a different level based on te buton clicked
     public void PlayLevel(int level)
     {
